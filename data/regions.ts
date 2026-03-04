@@ -2,7 +2,7 @@ export const regions = {
   north: {
     slug: "north",
     name: "ภาคเหนือ",
-    provinces: ["แม่ฮ่องสอน"],
+    provinces: ["แม่ฮ่องสอน","นครสวรรค์"],
   },
   central: {
     slug: "central",

@@ -4,6 +4,7 @@ export function provinceToSlug(name: string) {
     .trim()
     .toLowerCase()
     .replace("แม่ฮ่องสอน", "mae-hong-son")
+    .replace("นครสวรรค์", "nakhon-sawan")
     .replace("เชียงใหม่", "chiang-mai")
     .replace("เชียงราย", "chiang-rai")
     .replace("ลำปาง", "lampang")
