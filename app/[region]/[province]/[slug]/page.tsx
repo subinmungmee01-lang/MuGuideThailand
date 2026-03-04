@@ -1,4 +1,4 @@
-// app/temple/[slug]/page.tsx
+// app/[region]/[province]/[slug]/page.tsx
 
 import Link from "next/link";
 import Image from "next/image";
@@ -8,10 +8,24 @@ import { provinceToSlug } from "@/lib/slug";
 import { Metadata } from "next";
 
 /* =========================
+   REGION MAP (ไว้แสดงชื่อไทย)
+========================= */
+const regionNameMap: Record<string, string> = {
+  north: "ภาคเหนือ",
+  northeast: "ภาคตะวันออกเฉียงเหนือ",
+  central: "ภาคกลาง",
+  east: "ภาคตะวันออก",
+  west: "ภาคตะวันตก",
+  south: "ภาคใต้",
+};
+
+/* =========================
    STATIC PARAMS
 ========================= */
 export async function generateStaticParams() {
   return temples.map((temple) => ({
+    region: temple.region,
+    province: provinceToSlug(temple.province),
     slug: temple.slug,
   }));
 }
@@ -22,15 +36,26 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { region: string; province: string; slug: string };
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const temple = temples.find((t) => t.slug === slug);
+  const temple = temples.find(
+    (t) =>
+      t.slug === params.slug &&
+      t.region === params.region &&
+      provinceToSlug(t.province) === params.province
+  );
+
   if (!temple) return {};
 
-  const title = temple.seoTitle ?? `${temple.name} จังหวัด${temple.province} ขอพรเรื่องอะไร | MU GUIDE`;
-  const description = temple.seoDescription ?? `${temple.name} จังหวัด${temple.province} เด่นเรื่อง${temple.highlight}`;
-  const url = `https://www.muguide-thailand.com/temple/${temple.slug}`;
+  const title =
+    temple.seoTitle ??
+    `${temple.name} จังหวัด${temple.province} ขอพรเรื่องอะไร | MU GUIDE`;
+
+  const description =
+    temple.seoDescription ??
+    `${temple.name} จังหวัด${temple.province} เด่นเรื่อง${temple.highlight}`;
+
+  const url = `https://www.muguide-thailand.com/${params.region}/${params.province}/${params.slug}`;
 
   return {
     title,
@@ -43,7 +68,11 @@ export async function generateMetadata({
       url,
       locale: "th_TH",
       type: "article",
-      images: [{ url: `https://www.muguide-thailand.com${temple.coverImage.src}` }],
+      images: [
+        {
+          url: `https://www.muguide-thailand.com${temple.coverImage.src}`,
+        },
+      ],
     },
   };
 }
@@ -51,31 +80,40 @@ export async function generateMetadata({
 /* =========================
    PAGE COMPONENT
 ========================= */
-export default async function TemplePage({
+export default function TemplePage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { region: string; province: string; slug: string };
 }) {
-  const { slug } = await params;
-  const temple = temples.find((t) => t.slug === slug);
+  const temple = temples.find(
+    (t) =>
+      t.slug === params.slug &&
+      t.region === params.region &&
+      provinceToSlug(t.province) === params.province
+  );
 
   if (!temple) {
-    return <div className="p-20 text-center font-bold text-burgundy">ไม่พบข้อมูลวัดนี้</div>;
+    return (
+      <div className="p-20 text-center font-bold text-burgundy">
+        ไม่พบข้อมูลวัดนี้
+      </div>
+    );
   }
 
-  const provinceSlug = provinceToSlug(temple.province);
+  const regionThai =
+    regionNameMap[params.region] ?? `ภาค${params.region}`;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": temple.schemaType || "ReligiousPlace",
-    "name": temple.name,
-    "description": temple.meritHighlight?.description || temple.highlight,
-    "image": `https://www.muguide-thailand.com${temple.coverImage.src}`,
-    "address": {
+    name: temple.name,
+    description: temple.meritHighlight?.description || temple.highlight,
+    image: `https://www.muguide-thailand.com${temple.coverImage.src}`,
+    address: {
       "@type": "PostalAddress",
-      "addressRegion": temple.province,
-      "addressCountry": "TH"
-    }
+      addressRegion: temple.province,
+      addressCountry: "TH",
+    },
   };
 
   return (
@@ -86,15 +124,36 @@ export default async function TemplePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* --- BREADCRUMB --- */}
-      <nav className="max-w-5xl mx-auto px-6 pt-10 text-sm text-gray-500 flex items-center gap-2">
-        <Link href="/" className="hover:text-gold transition font-medium">หน้าแรก</Link>
-        <span>/</span>
-        <Link href={`/province/${provinceSlug}`} className="hover:text-gold transition text-burgundy font-medium">
+      {/* ================= BREADCRUMB ================= */}
+      <nav className="max-w-5xl mx-auto px-6 pt-10 text-sm flex items-center gap-2">
+
+        <Link href="/" className="text-gray-500 hover:text-gold transition">
+          หน้าแรก
+        </Link>
+
+        <span className="text-gray-400">/</span>
+
+        <Link
+          href={`/${params.region}`}
+          className="text-gray-500 hover:text-gold transition"
+        >
+          {regionThai}
+        </Link>
+
+        <span className="text-gray-400">/</span>
+
+        <Link
+          href={`/${params.region}/${params.province}`}
+          className="text-gray-500 hover:text-gold transition"
+        >
           {temple.province}
         </Link>
-        <span>/</span>
-        <span className="truncate">{temple.name}</span>
+
+        <span className="text-gray-400">/</span>
+
+        <span className="text-burgundy font-semibold">
+          {temple.name}
+        </span>
       </nav>
 
       <article className="max-w-5xl mx-auto px-6 py-8">

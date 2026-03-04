@@ -5,37 +5,47 @@ import { provinceToSlug } from "@/lib/slug";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.muguide-thailand.com";
-  const lastModified = new Date("2025-01-01");
+  const lastModified = new Date();
 
+  /* ========================
+     TEMPLE URLS
+  ======================== */
   const templeUrls = temples.map((t) => ({
-    url: `${base}/temple/${t.slug}`,
+    url: `${base}/${t.region}/${provinceToSlug(t.province)}/${t.slug}`,
     lastModified,
     changeFrequency: "monthly" as const,
-    priority: 0.7,
+    priority: 0.8,
   }));
 
-  const provinceUrls = Array.from(
-    new Set(
-      temples.map(
-        (t) => `${base}/${t.region}/${provinceToSlug(t.province)}`
-      )
-    )
-  ).map((url) => ({
-    url,
+  /* ========================
+     PROVINCE URLS
+  ======================== */
+  const provinceSet = new Set(
+    temples.map((t) => `${t.region}/${provinceToSlug(t.province)}`)
+  );
+
+  const provinceUrls = Array.from(provinceSet).map((path) => ({
+    url: `${base}/${path}`,
     lastModified,
     changeFrequency: "weekly" as const,
     priority: 0.9,
   }));
 
-  const regionUrls = Array.from(
-    new Set(temples.map((t) => `${base}/${t.region}`))
-  ).map((url) => ({
-    url,
+  /* ========================
+     REGION URLS
+  ======================== */
+  const regionSet = new Set(temples.map((t) => t.region));
+
+  const regionUrls = Array.from(regionSet).map((region) => ({
+    url: `${base}/${region}`,
     lastModified,
     changeFrequency: "weekly" as const,
     priority: 1.0,
   }));
 
+  /* ========================
+     HOMEPAGE
+  ======================== */
   return [
     {
       url: base,

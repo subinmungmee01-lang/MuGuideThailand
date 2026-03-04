@@ -41,7 +41,9 @@ export async function generateMetadata({
 }) {
   const provinceName = slugToProvince(
     params.province,
-    temples.map((t) => t.province)
+    temples
+      .filter((t) => t.region === params.region)
+      .map((t) => t.province)
   );
 
   if (!provinceName) return {};
@@ -122,44 +124,72 @@ export default function ProvincePage({
       </section>
 
       {/* Breadcrumb */}
-      <div className="max-w-6xl mx-auto px-6 py-6 text-sm text-gray-500">
-        <Link href="/">หน้าแรก</Link> /
-        <Link href={`/${params.region}`}>
-          ภาค{convertRegionToThai(params.region)}
-        </Link> /
-        <span> {provinceName}</span>
-      </div>
+      {/* ================= BREADCRUMB ================= */}
+      <nav className="max-w-6xl mx-auto px-6 py-6 text-sm flex items-center gap-2">
 
-      {/* Temple Cards */}
+        <Link
+          href="/"
+          className="text-gray-400 hover:text-burgundy transition"
+        >
+          หน้าแรก
+        </Link>
+
+        <span className="text-gray-300">/</span>
+
+        <Link
+          href={`/${params.region}`}
+          className="text-gray-400 hover:text-burgundy transition"
+        >
+          {convertRegionToThai(params.region)}
+        </Link>
+
+        <span className="text-gray-300">/</span>
+
+        <span className="text-burgundy font-semibold">
+          {provinceName}
+        </span>
+
+      </nav>
+
+
+      {/* ================= TEMPLE CARDS ================= */}
       <section className="max-w-6xl mx-auto px-6 pb-16">
 
         <div className="grid md:grid-cols-3 gap-8">
           {provinceTemples.map((temple) => (
-            <Link key={temple.slug} href={`/temple/${temple.slug}`}>
-              <article className="group bg-white border rounded-2xl overflow-hidden hover:shadow-xl transition">
+            <Link
+              key={temple.slug}
+              href={`/${params.region}/${params.province}/${temple.slug}`}
+              className="group"
+            >
+              <article className="bg-white border border-gray-100 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
 
-                <div className="relative w-full h-56">
+                {/* Image */}
+                <div className="relative w-full h-56 overflow-hidden">
                   <Image
                     src={temple.coverImage?.src || "/no-image.jpg"}
                     alt={temple.name}
                     fill
-                    className="object-cover group-hover:scale-105 transition"
+                    className="object-cover transition duration-700 group-hover:scale-110"
                   />
                 </div>
 
+                {/* Content */}
                 <div className="p-6">
-                  <h2 className="font-semibold text-lg">
+                  <h2 className="font-semibold text-lg text-burgundy group-hover:text-gold transition">
                     {temple.name}
                   </h2>
 
-                  <p className="text-gray-600 text-sm mt-2">
+                  <p className="text-gray-500 text-sm mt-2 leading-relaxed line-clamp-2">
                     {temple.highlight}
                   </p>
                 </div>
+
               </article>
             </Link>
           ))}
         </div>
+
 
         {/* SEO Content Block */}
         <div className="mt-16 text-center max-w-3xl mx-auto">
