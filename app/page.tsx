@@ -49,9 +49,6 @@ export async function generateMetadata() {
    Page
 ========================= */
 export default function Home() {
-  const thaiDate = getThaiDate();
-  const day = thaiDate.getDay() as 0 | 1 | 2 | 3 | 4 | 5 | 6;
-  const todayData = luckyData[day];
 
   /* ===== รวมภาค ===== */
   const regions = Array.from(new Set(temples.map(t => t.region)));
