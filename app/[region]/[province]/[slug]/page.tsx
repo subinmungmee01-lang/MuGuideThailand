@@ -159,10 +159,11 @@ export default function TemplePage({
       <article className="max-w-5xl mx-auto px-6 py-8">
         {/* --- HEADER --- */}
         <header className="mb-10 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-b from-yellow-600 to-yellow-800 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold leading-[1.2] md:leading-[1.15] mb-4 bg-gradient-to-b from-yellow-600 to-yellow-800 bg-clip-text text-transparent">
             {temple.name}
           </h1>
-          <p className="text-xl text-burgundy font-medium uppercase tracking-widest">
+
+          <p className="text-xl text-burgundy font-medium tracking-widest mt-2">
             {temple.province}
           </p>
         </header>
@@ -347,46 +348,54 @@ export default function TemplePage({
 
           {temple.relatedPlaces && temple.relatedPlaces.length > 0 && (
             <section className="pt-16 border-t border-gray-100">
-              {/* หัวข้อส่วน: ปรับเป็น font-semibold เพื่อความหรูหราแบบพอดี */}
               <h2 className="text-2xl font-semibold text-burgundy mb-8 flex items-center gap-3">
                 <span className="w-8 h-[1px] bg-gold/50"></span>
                 สายมูต้องไปต่อ ในจังหวัด{temple.province}
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {temple.relatedPlaces.map((place) => (
-                  <Link key={place.slug} href={`/temple/${place.slug}`} className="group">
-                    <div className="relative p-8 bg-white border border-gray-100 rounded-[2rem] transition-all duration-500 
-                        group-hover:border-gold/30 group-hover:shadow-xl group-hover:-translate-y-1.5 overflow-hidden">
+                {temple.relatedPlaces.map((place) => {
+                  const fullTemple = temples.find(t => t.slug === place.slug);
+                  if (!fullTemple) return null;
 
-                      {/* Background Decor */}
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full -mr-16 -mt-16 
-                          transition-transform duration-1000 group-hover:scale-150"></div>
+                  return (
+                    <Link
+                      key={place.slug}
+                      href={`/${fullTemple.region}/${provinceToSlug(fullTemple.province)}/${fullTemple.slug}`}
+                      className="group"
+                    >
+                      <div className="relative p-8 bg-white border border-gray-100 rounded-[2rem] transition-all duration-500 
+                group-hover:border-gold/30 group-hover:shadow-xl group-hover:-translate-y-1.5 overflow-hidden">
 
-                      <div className="relative z-10 flex flex-col h-full justify-between">
-                        <div>
-                          {/* คำแนะนำ: ใช้ font-medium และเพิ่ม tracking เพื่อความโปร่ง */}
-                          <p className="text-[10px] text-gold font-medium uppercase tracking-[0.3em] mb-2 opacity-70">
-                            Recommended
-                          </p>
-                          {/* ชื่อสถานที่: ลดความหนาลงมาที่ font-semibold */}
-                          <p className="text-xl font-semibold text-burgundy group-hover:text-gold transition-colors duration-300">
-                            {place.name}
-                          </p>
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full -mr-16 -mt-16 
+                  transition-transform duration-1000 group-hover:scale-150"></div>
+
+                        <div className="relative z-10 flex flex-col h-full justify-between">
+                          <div>
+                            <p className="text-[10px] text-gold font-medium uppercase tracking-[0.3em] mb-2 opacity-70">
+                              Recommended
+                            </p>
+
+                            <p className="text-xl font-semibold text-burgundy group-hover:text-gold transition-colors duration-300">
+                              {place.name}
+                            </p>
+                          </div>
+
+                          <div className="mt-8 flex items-center gap-2 text-gray-400 group-hover:text-burgundy transition-colors duration-300">
+                            <span className="text-xs font-medium uppercase tracking-widest">
+                              อ่านคู่มือเดินทาง
+                            </span>
+                            <span className="text-lg transform transition-transform duration-300 group-hover:translate-x-2">
+                              →
+                            </span>
+                          </div>
                         </div>
 
-                        {/* ส่วนท้าย: ปรับตัวหนังสือให้ดูเบาบางลง */}
-                        <div className="mt-8 flex items-center gap-2 text-gray-400 group-hover:text-burgundy transition-colors duration-300">
-                          <span className="text-xs font-medium uppercase tracking-widest">อ่านคู่มือเดินทาง</span>
-                          <span className="text-lg transform transition-transform duration-300 group-hover:translate-x-2">→</span>
-                        </div>
+                        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
                       </div>
-
-                      {/* Hover line: ปรับให้บางลงเหลือ h-[1px] */}
-                      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
-                    </div>
-                  </Link>
-                ))}
+                    </Link>
+                  );
+                })}
               </div>
             </section>
           )}
