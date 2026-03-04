@@ -54,13 +54,9 @@ export default function Home() {
   const regions = Array.from(new Set(temples.map(t => t.region)));
 
   /* ===== เลือกวัดตัวแทนภาค ===== */
-  const regionRepresentatives = regions.map(region => {
-    const temple = temples.find(t => t.region === region);
-    return {
-      region,
-      temple,
-    };
-  });
+  const regionRepresentatives = regions.map(region => ({
+    region,
+  }));
 
   return (
     <main className="bg-gradient-to-b from-[#f6f2ea] to-white min-h-screen">
@@ -81,7 +77,7 @@ export default function Home() {
       <section className="max-w-6xl mx-auto px-6 pb-16">
         <div className="grid md:grid-cols-3 gap-8">
 
-          {regionRepresentatives.map(({ region, temple }) => (
+          {regions.map((region) => (
             <Link key={region} href={`/${region}`}>
               <article className="group bg-white border rounded-2xl overflow-hidden hover:shadow-xl transition">
 

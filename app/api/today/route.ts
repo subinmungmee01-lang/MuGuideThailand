@@ -27,7 +27,7 @@ export async function GET() {
       incenseNumbers: incense,
       updatedAt: new Date().toISOString(),
     });
-  } catch (_error) {
+  } catch {
     return NextResponse.json(
       {
         success: false,
