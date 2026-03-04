@@ -69,7 +69,7 @@ export default function RegionPage({
     new Map(regionTemples.map((t) => [t.province, t])).values()
   );
 
-  const heroTemple = regionTemples[0];
+  //* const heroTemple = regionTemples[0]; */ 
 
   /* ===== Schema SEO ===== */
   const schema = {
@@ -161,6 +161,7 @@ export default function RegionPage({
       </section>
 
       <Script
+        id="region-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(schema),
