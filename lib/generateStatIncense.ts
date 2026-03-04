@@ -2,7 +2,7 @@
 
 import { lotteryHistory } from "@/data/lotteryHistory";
 
-export function generateStatIncense(roundKey?: string) {
+export function generateStatIncense(_roundKey?: string) {
   if (!lotteryHistory || lotteryHistory.length === 0) {
     return {
       incense: "0 0 0",

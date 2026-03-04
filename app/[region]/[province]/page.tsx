@@ -90,7 +90,6 @@ export default function ProvincePage({
       provinceToSlug(t.province) === params.province
   );
 
-  const heroTemple = provinceTemples[0];
 
   const schema = {
     "@context": "https://schema.org",
