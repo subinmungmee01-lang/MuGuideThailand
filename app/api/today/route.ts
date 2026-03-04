@@ -15,7 +15,7 @@ export async function GET() {
 
     const round = getCurrentLotteryRound();
 
-    const { incense, latestDate } = generateStatIncense(round.roundKey);
+    const { incense, latestDate } = generateStatIncense();
 
     return NextResponse.json({
       success: true,
