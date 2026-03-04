@@ -530,7 +530,9 @@ export const temples: Temple[] = [
   ],
 
   schemaType: "TouristAttraction",
-}
+},
+
+
 
 
 ];

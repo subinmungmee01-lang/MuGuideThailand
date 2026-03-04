@@ -143,8 +143,7 @@ export default async function TemplePage({
               <div className="bg-white p-8 rounded-2xl border-l-8 border-gold shadow-md">
                 <p className="text-2xl font-bold text-gold mb-3">{temple.meritHighlight.main}</p>
                 <p className="text-gray-700 leading-relaxed text-lg italic">
-                  "{temple.meritHighlight.description}"
-                </p>
+                  &quot;{temple.meritHighlight.description}&quot;                </p>
               </div>
             </section>
           )}
@@ -340,7 +339,7 @@ export default async function TemplePage({
       <footer className="bg-gray-50 mt-20 py-20 text-center">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="text-2xl font-bold text-burgundy mb-4 uppercase tracking-wider">Muguide Thailand</h2>
-          <p className="text-gray-500 font-light mb-8 italic">"เพราะความศรัทธา คือจุดเริ่มต้นของความสำเร็จ"</p>
+          <p className="text-gray-500 font-light mb-8 italic"> &quot;เพราะความศรัทธา คือจุดเริ่มต้นของความสำเร็จ&quot;</p>
           <div className="h-1 w-20 bg-gold mx-auto mb-8"></div>
           <p className="text-sm text-gray-400">แบ่งปันบุญและความรู้ให้เพื่อนของคุณ</p>
         </div>

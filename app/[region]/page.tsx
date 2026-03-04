@@ -69,7 +69,6 @@ export default function RegionPage({
     new Map(regionTemples.map((t) => [t.province, t])).values()
   );
 
-  //* const heroTemple = regionTemples[0]; */ 
 
   /* ===== Schema SEO ===== */
   const schema = {

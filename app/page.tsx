@@ -53,11 +53,6 @@ export default function Home() {
   /* ===== รวมภาค ===== */
   const regions = Array.from(new Set(temples.map(t => t.region)));
 
-  /* ===== เลือกวัดตัวแทนภาค ===== */
-  const regionRepresentatives = regions.map(region => ({
-    region,
-  }));
-
   return (
     <main className="bg-gradient-to-b from-[#f6f2ea] to-white min-h-screen">
 

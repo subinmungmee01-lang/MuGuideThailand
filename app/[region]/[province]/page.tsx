@@ -177,6 +177,7 @@ export default function ProvincePage({
       </section>
 
       <Script
+        id="region-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(schema),
