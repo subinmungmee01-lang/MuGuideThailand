@@ -357,6 +357,7 @@ export default function TemplePage({
                 {temple.relatedPlaces.map((place) => {
                   const fullTemple = temples.find(t => t.slug === place.slug);
                   if (!fullTemple) return null;
+                  
 
                   return (
                     <Link
