@@ -17,6 +17,11 @@ export function provinceToSlug(name: string) {
     .replace("พิษณุโลก", "phitsanulok")
     .replace("พิจิตร", "phichit")
     .replace("กำแพงเพชร", "kamphaeng-phet")
+
+    //ภาคกลาง
+    .replace("กาญจนบุรี", "kanchanaburi")
+
+
     .replace(/\s+/g, "-");
 }
 

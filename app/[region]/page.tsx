@@ -8,7 +8,6 @@ import { provinceToSlug } from "@/lib/slug";
 import { regionImages } from "@/data/regionImages";
 import { provinceImages } from "@/data/provinceImages";
 
-
 /* =========================
    Static Params
 ========================= */
@@ -69,7 +68,6 @@ export default function RegionPage({
     new Map(regionTemples.map((t) => [t.province, t])).values()
   );
 
-
   /* ===== Schema SEO ===== */
   const schema = {
     "@context": "https://schema.org",
@@ -90,11 +88,14 @@ export default function RegionPage({
           className="object-cover"
           priority
         />
+
         <div className="absolute inset-0 bg-black/40" />
+
         <div className="absolute bottom-0 left-0 right-0 max-w-6xl mx-auto px-6 pb-10 text-white">
           <h1 className="text-4xl font-bold">
             ไหว้พระภาค{convertRegionToThai(params.region)}
           </h1>
+
           <p className="opacity-90 mt-2">
             รวมจังหวัดและวัดดังสายมูในภาคนี้
           </p>
@@ -102,10 +103,22 @@ export default function RegionPage({
       </section>
 
       {/* ================= Breadcrumb ================= */}
-      <div className="max-w-6xl mx-auto px-6 py-6 text-sm text-gray-500">
-        <Link href="/">หน้าแรก</Link> /
-        <span> ภาค{convertRegionToThai(params.region)}</span>
-      </div>
+      <nav className="max-w-6xl mx-auto px-6 py-6 text-sm flex items-center gap-2">
+
+        <Link
+          href="/"
+          className="text-gray-400 hover:text-burgundy transition"
+        >
+          หน้าแรก
+        </Link>
+
+        <span className="text-gray-300">/</span>
+
+        <span className="text-burgundy font-semibold">
+          ภาค{convertRegionToThai(params.region)}
+        </span>
+
+      </nav>
 
       {/* ================= Province Cards ================= */}
       <section className="max-w-6xl mx-auto px-6 pb-16">
@@ -118,24 +131,27 @@ export default function RegionPage({
               href={`/${params.region}/${provinceToSlug(
                 temple.province
               )}`}
+              className="group"
             >
-              <article className="group bg-white border rounded-2xl overflow-hidden hover:shadow-xl transition">
+              <article className="bg-white border border-gray-100 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
 
-                <div className="relative w-full h-56">
+                {/* Image */}
+                <div className="relative w-full h-56 overflow-hidden">
                   <Image
                     src={provinceImages[temple.province] || "/no-image.jpg"}
                     alt={`จังหวัด${temple.province}`}
                     fill
-                    className="object-cover group-hover:scale-105 transition"
+                    className="object-cover transition duration-700 group-hover:scale-110"
                   />
                 </div>
 
+                {/* Content */}
                 <div className="p-6">
-                  <h2 className="font-semibold text-lg">
+                  <h2 className="font-semibold text-lg text-burgundy group-hover:text-gold transition">
                     จังหวัด{temple.province}
                   </h2>
 
-                  <p className="text-gray-600 text-sm mt-2">
+                  <p className="text-gray-500 text-sm mt-2 leading-relaxed">
                     ดูวัดทั้งหมดในจังหวัดนี้
                   </p>
                 </div>
@@ -146,11 +162,12 @@ export default function RegionPage({
 
         </div>
 
-        {/* SEO Content */}
+        {/* ================= SEO Content ================= */}
         <div className="mt-16 text-center max-w-3xl mx-auto">
           <h2 className="text-xl font-semibold mb-4">
             เที่ยวไหว้พระภาค{convertRegionToThai(params.region)}
           </h2>
+
           <p className="text-gray-600">
             รวมวัดดังสายมูในภาค{convertRegionToThai(params.region)}
             แนะนำจังหวัดยอดนิยม วิธีขอพร และเส้นทางไหว้พระ
@@ -166,6 +183,7 @@ export default function RegionPage({
           __html: JSON.stringify(schema),
         }}
       />
+
     </main>
   );
 }
@@ -182,5 +200,6 @@ function convertRegionToThai(region: string) {
     east: "ตะวันออก",
     west: "ตะวันตก",
   };
+
   return map[region] ?? region;
 }

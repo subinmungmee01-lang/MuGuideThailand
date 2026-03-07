@@ -1,23 +1,26 @@
+//data/regions.ts
 export const regions = {
   north: {
     slug: "north",
     name: "ภาคเหนือ",
-    provinces: ["แม่ฮ่องสอน","นครสวรรค์"],
+    provinces: ["แม่ฮ่องสอน", "นครสวรรค์", "กำแพงเพชร", "พิจิตร", "สุโขทัย"]
   },
+
   central: {
     slug: "central",
     name: "ภาคกลาง",
-    provinces: ["อยุธยา", "นครปฐม"],
+    provinces: ["อยุธยา", "นครปฐม", "กาญจนบุรี"]
   },
+
   south: {
     slug: "south",
     name: "ภาคใต้",
-    provinces: [],
+    provinces: ["ชุมพร"]
   },
+
   northeast: {
     slug: "northeast",
     name: "ภาคอีสาน",
-    provinces: [],
+    provinces: ["บุรีรัมย์"]
   },
-  
 };
