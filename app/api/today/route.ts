@@ -17,16 +17,7 @@ export async function GET() {
 
     const { incense, latestDate } = generateStatIncense();
 
-    return NextResponse.json({
-      success: true,
-      strategy: "Statistical Weighted Model v1 (Per Lottery Round)",
-      lotteryReference: latestDate,
-      round: `${round.roundDay}/${round.month}/${round.year}`,
-      dayNameTH: todayData.dayNameTH,
-      colors: todayData.colors,
-      incenseNumbers: incense,
-      updatedAt: new Date().toISOString(),
-    });
+    return NextResponse.json({ success: true, strategy: "Statistical Weighted Model v1 (Per Lottery Round)", lotteryReference: latestDate, round: `${round.roundDay}/${round.month}/${round.year}`, dayNameTH: todayData.dayNameTH, colors: todayData.colors, incenseNumbers: incense, updatedAt: new Date().toISOString(), }, { headers: { "Cache-Control": "no-store, no-cache, must-revalidate", }, });
   } catch {
     return NextResponse.json(
       {

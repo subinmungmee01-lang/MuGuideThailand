@@ -10,9 +10,8 @@ interface TodayData {
 
 export default function TodaySection() {
   const [data, setData] = useState<TodayData | null>(null);
-
   useEffect(() => {
-    fetch("/api/today")
+    fetch("/api/today", { cache: "no-store" })
       .then((res) => res.json())
       .then((json) => {
         if (json.success) setData(json);
