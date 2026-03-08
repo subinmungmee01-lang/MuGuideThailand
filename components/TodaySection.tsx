@@ -31,8 +31,7 @@ export default function TodaySection() {
     <section className="relative py-36 overflow-hidden bg-gradient-to-b from-[#faf6ee] via-[#f4ecdd] to-[#faf6ee]">
 
       {/* ลายไทยจางมาก */}
-      <div className="absolute inset-0 opacity-[0.035] bg-[url('/thai-pattern.png')] bg-center bg-no-repeat bg-contain pointer-events-none"></div>
-
+      <div className="absolute inset-0 bg-[url('/thai-pattern.png')] bg-repeat opacity-10 pointer-events-none"></div>
       <div className="relative max-w-7xl mx-auto px-6">
 
         {/* Header พิธีการ */}
