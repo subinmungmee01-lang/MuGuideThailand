@@ -221,12 +221,12 @@ export default function ProvincePage({
 ========================= */
 function convertRegionToThai(region: string) {
   const map: Record<string, string> = {
-    north: "เหนือ",
-    central: "กลาง",
-    south: "ใต้",
-    northeast: "อีสาน",
-    east: "ตะวันออก",
-    west: "ตะวันตก",
+    north: "ภาคเหนือ",
+    central: "ภาคกลาง",
+    south: "ภาคใต้",
+    northeast: "ภาคอีสาน",
+    east: "ภาคตะวันออก",
+    west: "ภาคตะวันตก",
   };
   return map[region] ?? region;
 }
