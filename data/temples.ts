@@ -2,7 +2,7 @@
    Temple Data Model - Muguidethailand
    Template Version (SEO + Mu + Travel Optimized)
 ===================================================== */
-// app/temples.ts
+  // app/temples.ts
 
 export type Region =
   | "north"
@@ -24,6 +24,9 @@ export type Temple = {
   name: string;
   province: string;
   region: Region;
+
+  /* ---------- Mu Category ---------- */
+  muTags?: ("wealth" | "love" | "work" | "luck")[];
 
   /* ---------- SEO ---------- */
   seoTitle?: string;
@@ -92,6 +95,7 @@ export const temples: Temple[] = [
     name: "วัดจองคำ",
     province: "แม่ฮ่องสอน",
     region: "north",
+    muTags: ["work", "luck"],
 
     /* ---------- SEO ---------- */
     seoTitle:
@@ -1043,7 +1047,7 @@ export const temples: Temple[] = [
         "สังฆทานหรือปัจจัยทำบุญ",
       ],
       mantra:
-      " พุทธบูชา มหาเตชะวันโต ธรรมบูชามหาปัญโญ สังฆะบูชา มหาโพคะวะโห ติโรคะนาธัง จันทสุวัญโณ ภิกขุ มหาเถระสุมัง คะละบูชาอภิบูชายามิ (คาถาบูชาหลวงพ่อจ้อย)",
+        " พุทธบูชา มหาเตชะวันโต ธรรมบูชามหาปัญโญ สังฆะบูชา มหาโพคะวะโห ติโรคะนาธัง จันทสุวัญโณ ภิกขุ มหาเถระสุมัง คะละบูชาอภิบูชายามิ (คาถาบูชาหลวงพ่อจ้อย)",
     },
 
     /* ---------- Images ---------- */
@@ -1786,12 +1790,12 @@ export const temples: Temple[] = [
 
     contentImages: [
       {
-      src: "/imgnorth/nakhon-sawan/pueng-thao-ma-shrine/pueng-thao-ma-shrine-2.jpg",
+        src: "/imgnorth/nakhon-sawan/pueng-thao-ma-shrine/pueng-thao-ma-shrine-2.jpg",
         alt: "องค์เทพภายในศาลเจ้าปึงเถ่าม่า",
         caption: "องค์เทพภายในศาลเจ้าปึงเถ่าม่า ศูนย์รวมศรัทธาชาวปากน้ำโพ",
       },
       {
-      src: "/imgnorth/nakhon-sawan/pueng-thao-ma-shrine/pueng-thao-ma-shrine-3.jpg",
+        src: "/imgnorth/nakhon-sawan/pueng-thao-ma-shrine/pueng-thao-ma-shrine-3.jpg",
         alt: "บรรยากาศศาลเจ้าจีน นครสวรรค์",
         caption: "บรรยากาศศาลเจ้าจีนเก่าแก่ในจังหวัดนครสวรรค์",
       },
@@ -1929,12 +1933,12 @@ export const temples: Temple[] = [
 
     contentImages: [
       {
-      src: "/imgnorth/nakhon-sawan/golden-dragon/golden-dragon-2.jpg",
+        src: "/imgnorth/nakhon-sawan/golden-dragon/golden-dragon-2.jpg",
         alt: "องค์เจ้าพ่อมังกรทอง",
         caption: "องค์เจ้าพ่อมังกรทอง สัญลักษณ์แห่งความมั่งคั่ง"
       },
       {
-      src: "/imgnorth/nakhon-sawan/golden-dragon/golden-dragon-3.jpg",
+        src: "/imgnorth/nakhon-sawan/golden-dragon/golden-dragon-3.jpg",
         alt: "บรรยากาศภายในศาลเจ้า",
         caption: "บรรยากาศศาลเจ้าจีนในนครสวรรค์ช่วงเทศกาลสำคัญ"
       }
@@ -2067,7 +2071,7 @@ export const temples: Temple[] = [
 
     /* ---------- Images ---------- */
     coverImage: {
-        src: "/imgnorth/phichit/wat-tha-luang/wat-tha-luang-1.jpg",
+      src: "/imgnorth/phichit/wat-tha-luang/wat-tha-luang-1.jpg",
       alt: "วัดท่าหลวง พิจิตร",
       title: "วัดท่าหลวง พิจิตร",
     },
@@ -2209,7 +2213,7 @@ export const temples: Temple[] = [
 
     /* ---------- Images ---------- */
     coverImage: {
-        src: "/imgnorth/phichit/wat-dong-klang/wat-dong-klang-1.jpg",
+      src: "/imgnorth/phichit/wat-dong-klang/wat-dong-klang-1.jpg",
       alt: "วัดดงกลาง พิจิตร",
       title: "วัดดงกลาง พิจิตร",
     },
@@ -2346,7 +2350,7 @@ export const temples: Temple[] = [
         "สังฆทาน"
       ],
       mantra:
-        " อะระหัง สัมมาสัมพุทโธ ภะคะวา พุทธัง ภะคะวันตัง อภิวาเทมิ สะวากขาโต ภะคะวะตา ธัมโม ธัมมัง นะมัสสามิ สุปะฏิปันโน ภะคะวะโต สาวะกะสังโฆ สังฆัง นะมามิ ข้าพเจ้า (ชื่อ-นามสกุล) รำลึกถึงหลวงพ่อแล้วอธิฐาน" 
+        " อะระหัง สัมมาสัมพุทโธ ภะคะวา พุทธัง ภะคะวันตัง อภิวาเทมิ สะวากขาโต ภะคะวะตา ธัมโม ธัมมัง นะมัสสามิ สุปะฏิปันโน ภะคะวะโต สาวะกะสังโฆ สังฆัง นะมามิ ข้าพเจ้า (ชื่อ-นามสกุล) รำลึกถึงหลวงพ่อแล้วอธิฐาน"
     },
 
     /* ---------- Images ---------- */
@@ -2358,12 +2362,12 @@ export const temples: Temple[] = [
 
     contentImages: [
       {
-      src: "/imgnorth/phichit/wat-pho-prathap-chang/wat-pho-prathap-chang-2.jpg",
+        src: "/imgnorth/phichit/wat-pho-prathap-chang/wat-pho-prathap-chang-2.jpg",
         alt: "พระอุโบสถวัดโพธิ์ประทับช้าง",
         caption: "พระอุโบสถโบราณสมัยอยุธยาตอนปลาย"
       },
       {
-      src: "/imgnorth/phichit/wat-pho-prathap-chang/wat-pho-prathap-chang-3.jpg",
+        src: "/imgnorth/phichit/wat-pho-prathap-chang/wat-pho-prathap-chang-3.jpg",
         alt: "หลวงพ่อโต วัดโพธิ์ประทับช้าง ",
         caption: "หลวงพ่อโต วัดโพธิ์ประทับช้าง อายุกว่า 300 ปี "
       }
