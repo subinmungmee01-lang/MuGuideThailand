@@ -7,13 +7,26 @@ import { temples } from "@/data/temples";
 import { provinceToSlug } from "@/lib/slug";
 
 /* ===============================
+   MU CATEGORY TYPE
+================================ */
+type MuCategory =
+  | "wealth"
+  | "work"
+  | "love"
+  | "success"
+  | "luck"
+  | "health";
+
+/* ===============================
    CATEGORY TITLE
 ================================ */
-const categoryTitle: Record<string, string> = {
+const categoryTitle: Record<MuCategory, string> = {
   wealth: "วัดขอพรการเงิน",
-  love: "วัดขอพรความรัก",
   work: "วัดขอพรการงาน",
+  love: "วัดขอพรความรัก",
+  success: "วัดขอพรความสำเร็จ",
   luck: "วัดขอโชคลาภ",
+  health: "วัดขอพรสุขภาพ",
 };
 
 /* ===============================
@@ -22,7 +35,7 @@ const categoryTitle: Record<string, string> = {
 export function generateMetadata({
   params,
 }: {
-  params: { category: string };
+  params: { category: MuCategory };
 }): Metadata {
   const title = categoryTitle[params.category] ?? "วัดสายมู";
 
@@ -38,10 +51,10 @@ export function generateMetadata({
 export default function MuCategoryPage({
   params,
 }: {
-  params: { category: string };
+  params: { category: MuCategory };
 }) {
   const list = temples.filter((t) =>
-    t.muTags?.includes(params.category as any)
+    t.muTags?.includes(params.category)
   );
 
   const title = categoryTitle[params.category] ?? "วัดสายมู";
@@ -99,17 +112,14 @@ export default function MuCategoryPage({
 
               {/* Content */}
               <div className="p-6">
-                {/* Temple Name */}
                 <h2 className="font-semibold text-lg mb-2 group-hover:text-yellow-600">
                   {t.name}
                 </h2>
 
-                {/* Province */}
                 <p className="text-sm text-gray-500 mb-3">
                   จังหวัด{t.province}
                 </p>
 
-                {/* Highlight */}
                 <p className="text-sm text-gray-600 line-clamp-2 mb-4">
                   {t.highlight}
                 </p>
@@ -121,7 +131,7 @@ export default function MuCategoryPage({
                       key={tag}
                       className="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full"
                     >
-                      {categoryTitle[tag] ?? tag}
+                      {categoryTitle[tag as MuCategory] ?? tag}
                     </span>
                   ))}
                 </div>

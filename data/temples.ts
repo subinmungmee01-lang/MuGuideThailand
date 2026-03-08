@@ -2,7 +2,7 @@
    Temple Data Model - Muguidethailand
    Template Version (SEO + Mu + Travel Optimized)
 ===================================================== */
-  // app/temples.ts
+// app/temples.ts
 
 export type Region =
   | "north"
@@ -26,7 +26,14 @@ export type Temple = {
   region: Region;
 
   /* ---------- Mu Category ---------- */
-  muTags?: ("wealth" | "love" | "work" | "luck")[];
+  muTags?: (
+    | "wealth"
+    | "work"
+    | "love"
+    | "success"
+    | "luck"
+    | "health"
+  )[];
 
   /* ---------- SEO ---------- */
   seoTitle?: string;
@@ -243,6 +250,7 @@ export const temples: Temple[] = [
     name: "วัดน้ำฮู",
     province: "แม่ฮ่องสอน",
     region: "north",
+    muTags: ["luck"],
 
     /* ---------- SEO ---------- */
     seoTitle:
@@ -333,7 +341,7 @@ export const temples: Temple[] = [
       lat: 19.3785,
       lng: 98.4382,
     },
-    googleMap: "https://maps.app.goo.gl/7o1F6oL5bWmH1example",
+    googleMap: "https://maps.app.goo.gl/ZPXrkRk7WYtknbix5",
     openTime: "เปิดทุกวัน 08:00 - 17:00 น.",
     entranceFee: "ไม่เสียค่าเข้าชม (ร่วมทำบุญตามศรัทธา)",
     bestTimeToVisit:
@@ -391,6 +399,7 @@ export const temples: Temple[] = [
     name: "พระธาตุดอยกองมู",
     province: "แม่ฮ่องสอน",
     region: "north",
+    muTags: ["success"],
 
     /* ---------- SEO ---------- */
     seoTitle:
@@ -483,7 +492,7 @@ export const temples: Temple[] = [
       lat: 19.3120,
       lng: 97.9685,
     },
-    googleMap: "https://maps.app.goo.gl/exampleDoiKongMu",
+    googleMap: "https://maps.app.goo.gl/NykCRJaEkZLkGTrS9",
     openTime: "เปิดทุกวัน 06:00 - 18:00 น.",
     entranceFee: "ไม่เสียค่าเข้าชม (ร่วมทำบุญตามศรัทธา)",
     bestTimeToVisit:
@@ -542,6 +551,7 @@ export const temples: Temple[] = [
     name: "วัดศีรีวงศ์",
     province: "นครสวรรค์",
     region: "north",
+    muTags: ["success", "work", "luck"],
 
     /* ---------- SEO ---------- */
     seoTitle:
@@ -633,7 +643,7 @@ export const temples: Temple[] = [
       lat: 15.7089,
       lng: 100.1372,
     },
-    googleMap: "https://maps.app.goo.gl/UK9tmN2SRGK5zeeW6",
+    googleMap: "https://maps.app.goo.gl/UmzyKqvn3fNFFxmJ6",
     openTime: "เปิดทุกวัน 06:00 - 18:00 น.",
     entranceFee: "ไม่เสียค่าเข้าชม (ร่วมทำบุญตามศรัทธา)",
     bestTimeToVisit:
@@ -692,6 +702,7 @@ export const temples: Temple[] = [
     name: "วัดวรนาถบรรพต (วัดเขากบ)",
     province: "นครสวรรค์",
     region: "north",
+    muTags: ["success"],
 
     /* ---------- SEO ---------- */
     seoTitle:
@@ -786,7 +797,7 @@ export const temples: Temple[] = [
       lat: 15.7065,
       lng: 100.1379,
     },
-    googleMap: "https://maps.app.goo.gl/UK9tmN2SRGK5zeeW6",
+    googleMap: "https://share.google/gEuDKgfkHdkVXGgLX",
     openTime: "เปิดทุกวัน 06:00 - 18:00 น.",
     entranceFee: "ไม่เสียค่าเข้าชม (ร่วมทำบุญตามศรัทธา)",
     bestTimeToVisit:
@@ -838,6 +849,8 @@ export const temples: Temple[] = [
 
     schemaType: "TouristAttraction",
   },
+
+
   {
     slug: "wat-pa-hua-talok-wanaram-nakhon-sawan",
     name: "วัดป่าหัวตลุกวนาราม",
@@ -930,7 +943,7 @@ export const temples: Temple[] = [
       lat: 15.7790,
       lng: 99.8550,
     },
-    googleMap: "https://maps.app.goo.gl/exampleHuaTalok",
+    googleMap: "https://maps.app.goo.gl/8syURJ6tjTSucq7MA",
     openTime: "เปิดทุกวัน 06:00 - 17:30 น.",
     entranceFee: "ไม่เสียค่าเข้าชม (ร่วมทำบุญตามศรัทธา)",
     bestTimeToVisit:
@@ -988,6 +1001,7 @@ export const temples: Temple[] = [
     name: "วัดศรีอุทุมพร (วัดหลวงพ่อจ้อย)",
     province: "นครสวรรค์",
     region: "north",
+    muTags: ["work"],
 
     /* ---------- SEO ---------- */
     seoTitle:
@@ -1077,7 +1091,7 @@ export const temples: Temple[] = [
       lat: 15.7605,
       lng: 100.1880,
     },
-    googleMap: "https://maps.app.goo.gl/exampleSriUthumphon",
+    googleMap: "https://maps.app.goo.gl/q75Kaz8HmEovD72o9",
     openTime: "เปิดทุกวัน 06:00 - 18:00 น.",
     entranceFee: "ไม่เสียค่าเข้าชม (ร่วมทำบุญตามศรัทธา)",
     bestTimeToVisit:
@@ -1135,6 +1149,7 @@ export const temples: Temple[] = [
     name: "อุทยานเทวสถานพระพิฆเนศ",
     province: "นครสวรรค์",
     region: "north",
+    muTags: ["luck", "success", "work"],
 
     /* ---------- SEO ---------- */
     seoTitle:
@@ -1223,7 +1238,7 @@ export const temples: Temple[] = [
       lat: 15.7200,
       lng: 100.1200,
     },
-    googleMap: "https://maps.app.goo.gl/exampleGaneshaNS",
+    googleMap: "https://maps.app.goo.gl/Q7N6kYgerwnFe4Js7",
     openTime: "เปิดทุกวัน 08:00 - 18:00 น.",
     entranceFee: "ไม่เสียค่าเข้าชม (ร่วมทำบุญตามศรัทธา)",
     bestTimeToVisit:
@@ -1281,6 +1296,7 @@ export const temples: Temple[] = [
     name: "วัดหนองโพ (วัดหลวงพ่อเดิม)",
     province: "นครสวรรค์",
     region: "north",
+    muTags: ["luck"],
 
     /* ---------- SEO ---------- */
     seoTitle:
@@ -1370,7 +1386,7 @@ export const temples: Temple[] = [
       lat: 15.2750,
       lng: 100.3380,
     },
-    googleMap: "https://maps.app.goo.gl/exampleNongPho",
+    googleMap: "https://maps.app.goo.gl/jDQ4qmuJBsbTgNpx8",
     openTime: "เปิดทุกวัน 06:00 - 18:00 น.",
     entranceFee: "ไม่เสียค่าเข้าชม (ร่วมทำบุญตามศรัทธา)",
     bestTimeToVisit:
@@ -1428,6 +1444,7 @@ export const temples: Temple[] = [
     name: "ศาลเจ้าพ่อนาคราช จันเสน",
     province: "นครสวรรค์",
     region: "north",
+    muTags: ["luck", "wealth"],
 
     /* ---------- SEO ---------- */
     seoTitle:
@@ -1511,12 +1528,12 @@ export const temples: Temple[] = [
 
     /* ---------- Location ---------- */
     address:
-      "ต.จันเสน อ.ตาคลี จ.นครสวรรค์ 60260",
+      "ศาลเจ้าพ่อนาคราช ตำบล จันเสน อำเภอตาคลี นครสวรรค์ 60210",
     coordinates: {
       lat: 15.1340,
       lng: 100.3590,
     },
-    googleMap: "https://maps.app.goo.gl/exampleChanSenNaga",
+    googleMap: "https://maps.app.goo.gl/6p91mQr3dt5CjFFt6",
     openTime: "เปิดทุกวัน 07:00 - 18:00 น.",
     entranceFee: "ไม่เสียค่าเข้าชม (ร่วมทำบุญตามศรัทธา)",
     bestTimeToVisit:
@@ -1574,6 +1591,7 @@ export const temples: Temple[] = [
     name: "ศาลเจ้าพ่อเทพารักษ์ – เจ้าแม่ทับทิม",
     province: "นครสวรรค์",
     region: "north",
+    muTags: ["luck", "wealth"],
 
     /* ---------- SEO ---------- */
     seoTitle:
@@ -1658,12 +1676,12 @@ export const temples: Temple[] = [
 
     /* ---------- Location ---------- */
     address:
-      "อ.เมืองนครสวรรค์ จ.นครสวรรค์ 60000",
+      "ต.นครสวรรค์​ออก (แควใหญ่ 469 อ.เมือง นครสวรรค์ 60000",
     coordinates: {
       lat: 15.7040,
       lng: 100.1375,
     },
-    googleMap: "https://maps.app.goo.gl/exampleThepharakNS",
+    googleMap: "https://maps.app.goo.gl/binCRr9KTukXdmJZ8",
     openTime: "เปิดทุกวัน 07:00 - 18:00 น.",
     entranceFee: "ไม่เสียค่าเข้าชม (ร่วมทำบุญตามศรัทธา)",
     bestTimeToVisit:
@@ -1721,6 +1739,7 @@ export const temples: Temple[] = [
     name: "ศาลเจ้าปึงเถ่าม่า",
     province: "นครสวรรค์",
     region: "north",
+    muTags: ["luck", "wealth"],
 
     /* ---------- SEO ---------- */
     seoTitle:
@@ -1802,12 +1821,12 @@ export const temples: Temple[] = [
     ],
 
     /* ---------- Location ---------- */
-    address: "อำเภอเมืองนครสวรรค์ จังหวัดนครสวรรค์ 60000",
+    address: "94/2 ถ.โกสีย์ ตำบลปากน้ำโพ เมือง นครสวรรค์ 60000",
     coordinates: {
       lat: 15.7052,
       lng: 100.1382,
     },
-    googleMap: "https://maps.app.goo.gl/examplePuengThaoMaNS",
+    googleMap: "https://maps.app.goo.gl/kapS5r6nVvmr5P5E9",
     openTime: "เปิดทุกวัน 07:00 - 18:00 น.",
     entranceFee: "ไม่เสียค่าเข้าชม (ร่วมทำบุญตามศรัทธา)",
     bestTimeToVisit:
@@ -1859,11 +1878,13 @@ export const temples: Temple[] = [
 
     schemaType: "TouristAttraction",
   },
+
   {
     slug: "golden-dragon-shrine-leng-buai-ia-nakhon-sawan",
     name: "ศาลเจ้าพ่อมังกรทอง (เล้งบ๊วยเอี๊ย)",
     province: "นครสวรรค์",
     region: "north",
+    muTags: ["success", "wealth"],
 
     /* ---------- SEO ---------- */
     seoTitle:
@@ -1945,12 +1966,12 @@ export const temples: Temple[] = [
     ],
 
     /* ---------- Location ---------- */
-    address: "อำเภอเมืองนครสวรรค์ จังหวัดนครสวรรค์ 60000",
+    address: "ถ.สวรรค์วิถี ตำบลปากน้ำโพ อำเภอเมืองนครสวรรค์ นครสวรรค์ 60000",
     coordinates: {
       lat: 15.7060,
       lng: 100.1390
     },
-    googleMap: "https://maps.app.goo.gl/exampleGoldenDragonNS",
+    googleMap: "https://maps.app.goo.gl/n3WzbFptssKTBzEw5",
     openTime: "เปิดทุกวัน 07:00 - 18:00 น.",
     entranceFee: "ไม่เสียค่าเข้าชม (ร่วมทำบุญตามศรัทธา)",
     bestTimeToVisit:
@@ -2003,13 +2024,12 @@ export const temples: Temple[] = [
     schemaType: "TouristAttraction"
   },
 
-
-
   {
     slug: "wat-tha-luang-phichit",
     name: "วัดท่าหลวง",
     province: "พิจิตร",
     region: "north",
+    muTags: ["success", "luck"],
 
     /* ---------- SEO ---------- */
     seoTitle:
@@ -2095,7 +2115,7 @@ export const temples: Temple[] = [
       lat: 16.4419,
       lng: 100.3487,
     },
-    googleMap: "https://maps.app.goo.gl/exampleWatThaLuangPhichit",
+    googleMap: "https://maps.app.goo.gl/txQY2W36Smz9o6hG6",
     openTime: "เปิดทุกวัน 06:00 - 18:00 น.",
     entranceFee: "ไม่เสียค่าเข้าชม (ร่วมทำบุญตามศรัทธา)",
     bestTimeToVisit:
@@ -2232,12 +2252,12 @@ export const temples: Temple[] = [
     ],
 
     /* ---------- Location ---------- */
-    address: "จังหวัดพิจิตร",
+    address: "ตำบล ดงกลาง อำเภอเมืองพิจิตร พิจิตร 66170",
     coordinates: {
       lat: 16.4300,
       lng: 100.3500,
     },
-    googleMap: "https://maps.app.goo.gl/exampleWatDongKlangPhichit",
+    googleMap: "https://maps.app.goo.gl/prtdNm7TwSgGkZ4g7",
     openTime: "เปิดทุกวัน 06:00 - 18:00 น.",
     entranceFee: "ไม่เสียค่าเข้าชม (ร่วมทำบุญตามศรัทธา)",
     bestTimeToVisit:
@@ -2379,7 +2399,7 @@ export const temples: Temple[] = [
       lat: 16.3115,
       lng: 100.4205
     },
-    googleMap: "https://maps.app.goo.gl/exampleWatPhoPrathapChang",
+    googleMap: "https://maps.app.goo.gl/wvXwRyH971hkv9Qi6",
     openTime: "เปิดทุกวัน 08:00 - 17:00 น.",
     entranceFee: "ไม่เสียค่าเข้าชม",
     bestTimeToVisit:
@@ -2435,19 +2455,19 @@ export const temples: Temple[] = [
   {
     slug: "wat-sukhumaram-phichit",
     name: "วัดสุขุมาราม",
-    province: "กำแพงเพชร",
+    province: "พิจิตร",
     region: "north",
+    muTags: ["wealth", "work"],
 
     /* ---------- SEO ---------- */
     seoTitle:
-      "วัดสุขุมาราม พิจิตร วัดหลวงพ่อเงิน พระพุทธรูปองค์ใหญ่ริมแม่น้ำน่าน",
+      "วัดสุขุมาราม พิจิตร ไหว้พระนอนองค์ใหญ่ริมแม่น้ำน่าน วัดดังบางคลาน",
     seoDescription:
-      "เที่ยววัดสุขุมาราม จ.พิจิตร กราบหลวงพ่อเงินองค์ใหญ่ริมแม่น้ำน่าน วัดสำคัญสายหลวงพ่อเงินบางคลาน เด่นขอพรโชคลาภ การงาน และความเป็นสิริมงคล",
+      "เที่ยววัดสุขุมาราม จังหวัดพิจิตร กราบพระพุทธไสยาสน์องค์ใหญ่ วัดสวยริมแม่น้ำน่าน อำเภอบางคลาน สถานที่ทำบุญและท่องเที่ยวสำคัญของพิจิตร",
     keywords: [
       "วัดสุขุมาราม",
       "วัดสุขุมาราม พิจิตร",
-      "หลวงพ่อเงิน",
-      "หลวงพ่อเงินบางคลาน",
+      "พระนอน พิจิตร",
       "วัดบางคลาน",
       "เที่ยวพิจิตร",
       "ไหว้พระ พิจิตร"
@@ -2455,64 +2475,63 @@ export const temples: Temple[] = [
 
     /* ---------- Highlight ---------- */
     highlight:
-      "วัดสำคัญริมแม่น้ำน่าน ประดิษฐานหลวงพ่อเงินองค์ใหญ่ ศูนย์รวมศรัทธาสายหลวงพ่อเงิน",
+      "วัดสวยริมแม่น้ำน่าน โดดเด่นด้วยพระพุทธไสยาสน์องค์ใหญ่ เป็นสถานที่ทำบุญและพักผ่อนสำคัญของจังหวัดพิจิตร",
 
     /* ---------- Content ---------- */
     content: `
-วัดสุขุมาราม ตั้งอยู่ที่อำเภอบางคลาน จังหวัดพิจิตร
-เป็นวัดสำคัญที่เกี่ยวข้องกับหลวงพ่อเงิน วัดบางคลาน พระเกจิอาจารย์ชื่อดังของไทย
+วัดสุขุมาราม ตั้งอยู่ที่ ต.วังตะกู อ.บางมูลนาก จ.พิจิตร
+เป็นวัดสำคัญริมแม่น้ำน่านที่มีบรรยากาศสงบ ร่มรื่น และเหมาะสำหรับการทำบุญไหว้พระ
 
-ภายในวัดประดิษฐานพระพุทธรูปหลวงพ่อเงินองค์ใหญ่
-โดดเด่นสง่างามริมแม่น้ำน่าน
-ประชาชนจำนวนมากเดินทางมากราบไหว้ขอพรด้านโชคลาภ การงาน และความสำเร็จ
+จุดเด่นของวัดคือพระพุทธไสยาสน์ (พระนอน) ขนาดใหญ่
+ซึ่งประดิษฐานอยู่ภายในวิหารขนาดใหญ่
+มีความงดงามและเป็นหนึ่งในพระนอนองค์ใหญ่ของจังหวัดพิจิตร
 
-วัดสุขุมารามจึงเป็นทั้งสถานที่ท่องเที่ยวเชิงศรัทธา
-และสถานที่ทำบุญสำคัญของจังหวัดพิจิตร
-โดยเฉพาะผู้ศรัทธาในบารมีหลวงพ่อเงิน
+นักท่องเที่ยวและพุทธศาสนิกชนมักเดินทางมากราบไหว้ขอพร
+เพื่อความเป็นสิริมงคลในชีวิต รวมถึงทำบุญเสริมดวงด้านโชคลาภ
+ความสำเร็จ และความร่มเย็นในครอบครัว
 `,
-
     meritHighlight: {
-      main: "โชคลาภ การงาน ความสำเร็จ",
+      main: "เสริมสิริมงคล โชคลาภ และความสงบใจ",
       description:
-        "เสริมดวงการเงิน การงาน และความเจริญก้าวหน้า ตามความเชื่อสายหลวงพ่อเงิน",
+        "นิยมกราบไหว้พระนอนเพื่อขอพรให้ชีวิตร่มเย็น เสริมโชคลาภ และความเป็นสิริมงคล"
     },
 
     /* ---------- Blessing Technique ---------- */
     blessingTechnique: {
-      title: "เคล็ดลับการขอพรหลวงพ่อเงิน วัดสุขุมาราม",
+      title: "วิธีขอพรพระนอน วัดสุขุมาราม",
       steps: [
         "จุดธูป 3 ดอก ตั้งจิตให้สงบ",
-        "กล่าวชื่อ-นามสกุล วันเดือนปีเกิด",
-        "อธิษฐานขอพรด้านโชคลาภหรือการงาน",
-        "กราบ 3 ครั้งด้วยความเคารพ"
+        "กล่าวชื่อ-นามสกุล และวันเดือนปีเกิด",
+        "อธิษฐานขอพรด้านโชคลาภ ความสำเร็จ หรือความสุขในชีวิต",
+        "กราบพระพุทธไสยาสน์ 3 ครั้งด้วยความเคารพ"
       ],
       offering: [
         "ธูป 3 ดอก",
         "เทียน 1 คู่",
         "ดอกไม้สด",
-        "ทองคำเปลว (ปิดองค์พระตามจุดที่กำหนด)"
+        "ทองคำเปลว"
       ],
       mantra:
-        "นะโม ตัสสะ ภควโต อรหโต สัมมาสัมพุทธัสสะ (3 จบ)"
+        "ยัสสานุสสะระเณนาปิ อันตะลิก เขปิ ปาณิ โน ปะติฎฐะมะธิ คัจฉันติ ภูมิยัง วิยะ สัพพะทา สัพพูปัททะวะชาลัมหา ยักขะโจราทิ สัมภะวา คะณะนานะ จะมุตตานัง ปะริตตันตัม ภะณามะ เหฯ"
     },
 
     /* ---------- Images ---------- */
     coverImage: {
-      src: "/imgnorth/wat-sukhumaram-phichit.jpg",
+      src: "/imgnorth/phichit/wat-sukhumaram/wat-sukhumaram-1.jpg",
       alt: "วัดสุขุมาราม พิจิตร",
-      title: "วัดสุขุมาราม พิจิตร"
+      title: "วัดสุขุมาราม จังหวัดพิจิตร"
     },
 
     contentImages: [
       {
-        src: "/imgnorth/wat-sukhumaram-phichit.jpg",
-        alt: "หลวงพ่อเงินองค์ใหญ่",
-        caption: "หลวงพ่อเงินองค์ใหญ่ ริมแม่น้ำน่าน"
+        src: "/imgnorth/phichit/wat-sukhumaram/wat-sukhumaram-2.jpg",
+        alt: "พระพุทธไสยาสน์ วัดสุขุมาราม",
+        caption: "พระพุทธไสยาสน์องค์ใหญ่ภายในวัดสุขุมาราม"
       },
       {
-        src: "/imgnorth/wat-sukhumaram-phichit.jpg",
+        src: "/imgnorth/phichit/wat-sukhumaram/wat-sukhumaram-3.jpg",
         alt: "บรรยากาศวัดสุขุมาราม",
-        caption: "บรรยากาศวัดสุขุมาราม จังหวัดพิจิตร"
+        caption: "บรรยากาศสงบร่มรื่นภายในวัดสุขุมาราม จังหวัดพิจิตร"
       }
     ],
 
@@ -2522,24 +2541,24 @@ export const temples: Temple[] = [
       lat: 16.2325,
       lng: 100.3590
     },
-    googleMap: "https://maps.app.goo.gl/exampleWatSukhumaram",
-    openTime: "เปิดทุกวัน 07:00 - 18:00 น.",
+    googleMap: "https://goo.gl/maps/jCBBDu5D8VTcF3Tu5",
+    openTime: "เปิดทุกวัน 08:00 - 17:00 น.",
     entranceFee: "ไม่เสียค่าเข้าชม (ร่วมทำบุญตามศรัทธา)",
     bestTimeToVisit:
-      "ช่วงเช้าหรือเย็น บรรยากาศริมแม่น้ำสวยงามและไม่ร้อน",
+      "ช่วงเช้าหรือช่วงเย็น บรรยากาศริมแม่น้ำน่านสวยงามและอากาศไม่ร้อน",
 
     /* ---------- Worship Tips ---------- */
     worshipTips: [
       "แต่งกายสุภาพ",
-      "ปิดทององค์พระเฉพาะจุดที่วัดกำหนด",
-      "ตั้งจิตอธิษฐานด้วยความศรัทธา",
-      "หลีกเลี่ยงเสียงดังบริเวณองค์พระ"
+      "ถอดรองเท้าก่อนขึ้นวิหารพระนอน",
+      "ปิดทองเฉพาะจุดที่วัดกำหนด",
+      "รักษาความสงบภายในวิหาร"
     ],
 
     tips: [
-      "ตั้งอยู่ใกล้วัดบางคลาน สามารถแวะไหว้พระในเส้นทางเดียวกันได้",
-      "มีจุดถ่ายภาพริมแม่น้ำน่าน",
-      "ช่วงวันหยุดอาจมีผู้คนจำนวนมาก"
+      "สามารถแวะเที่ยววัดบางคลานได้ในเส้นทางเดียวกัน",
+      "มีบรรยากาศริมแม่น้ำน่านเหมาะแก่การพักผ่อน",
+      "ควรไปช่วงเช้าเพื่อหลีกเลี่ยงอากาศร้อน"
     ],
 
     relatedPlaces: [
@@ -2556,11 +2575,11 @@ export const temples: Temple[] = [
     faq: [
       {
         q: "วัดสุขุมารามเด่นเรื่องอะไร?",
-        a: "เด่นเรื่องหลวงพ่อเงินองค์ใหญ่ และการขอพรด้านโชคลาภ การงาน"
+        a: "เด่นเรื่องพระพุทธไสยาสน์ (พระนอน) องค์ใหญ่ และบรรยากาศริมแม่น้ำน่าน"
       },
       {
-        q: "อยู่ที่อำเภอไหน?",
-        a: "ตั้งอยู่ที่อำเภอบางคลาน จังหวัดพิจิตร"
+        q: "วัดสุขุมารามอยู่ที่ไหน?",
+        a: "ต.วังตะกู อ.บางมูลนาก จ.พิจิตร"
       },
       {
         q: "มีค่าเข้าชมหรือไม่?",
@@ -2568,12 +2587,13 @@ export const temples: Temple[] = [
       },
       {
         q: "เปิดกี่โมง?",
-        a: "เปิดทุกวัน เวลา 07:00 - 18:00 น."
+        a: "เปิดทุกวันประมาณ 08:00 - 17:00 น."
       }
     ],
 
     schemaType: "TouristAttraction"
   },
+
   {
     slug: "kamphaeng-phet-historical-park",
     name: "อุทยานประวัติศาสตร์กำแพงเพชร",
@@ -2635,36 +2655,36 @@ export const temples: Temple[] = [
         "น้ำสะอาด"
       ],
       mantra:
-        "นะโม ตัสสะ ภควโต อรหโต สัมมาสัมพุทธัสสะ (3 จบ)"
+        "ชิ นะ ปัญ ชะ ระ ปะ ริต ตัง มัง รัก ขะ ตุ สัพ พะ ทา (9 จบ) เสริมสิริมงคล"
     },
 
     /* ---------- Images ---------- */
     coverImage: {
-      src: "/imgnorth/kamphaeng-phet-historical-park.jpg",
+      src: "/imgnorth/kamphaeng-phet/kamphaeng-phet-historical-park/kamphaeng-phet-historical-park-1.jpg",
       alt: "อุทยานประวัติศาสตร์กำแพงเพชร",
       title: "อุทยานประวัติศาสตร์กำแพงเพชร"
     },
 
     contentImages: [
       {
-        src: "/imgnorth/kamphaeng-phet-historical-park.jpg",
+        src: "/imgnorth/kamphaeng-phet/kamphaeng-phet-historical-park/kamphaeng-phet-historical-park-2.jpg",
         alt: "วัดพระแก้ว กำแพงเพชร",
         caption: "วัดพระแก้ว โบราณสถานสำคัญในอุทยาน"
       },
       {
-        src: "/imgnorth/kamphaeng-phet-historical-park.jpg",
+        src: "/imgnorth/kamphaeng-phet/kamphaeng-phet-historical-park/kamphaeng-phet-historical-park-3.jpg",
         alt: "วัดช้างรอบ",
         caption: "วัดช้างรอบ เอกลักษณ์ศิลปะสุโขทัย"
       }
     ],
 
     /* ---------- Location ---------- */
-    address: "ตำบลในเมือง อำเภอเมืองกำแพงเพชร จังหวัดกำแพงเพชร 62000",
+    address: "ตำบลหนองปลิง อำเภอเมืองกำแพงเพชร กำแพงเพชร 62000",
     coordinates: {
       lat: 16.4825,
       lng: 99.5210
     },
-    googleMap: "https://maps.app.goo.gl/exampleKamphaengPhetPark",
+    googleMap: "https://maps.app.goo.gl/U9hsDuLN2K6dCKih8",
     openTime: "เปิดทุกวัน 08:00 - 17:00 น.",
     entranceFee: "มีค่าเข้าชมตามอัตรากรมศิลปากร",
     bestTimeToVisit:
@@ -2716,56 +2736,61 @@ export const temples: Temple[] = [
 
     schemaType: "TouristAttraction"
   },
+
   {
-    slug: "wat-nong-wong-kamphaeng-phet",
-    name: "วัดหนองโว้ง",
+    slug: "wat-mahathat-sukhothai",
+    name: "วัดมหาธาตุ",
     province: "สุโขทัย",
     region: "north",
+    muTags: ["luck"],
 
     /* ---------- SEO ---------- */
     seoTitle:
-      "วัดหนองโว้ง กำแพงเพชร วัดสงบเงียบ สักการะพระพุทธรูป เสริมสิริมงคล",
+      "วัดมหาธาตุ สุโขทัย แลนด์มาร์กสำคัญอุทยานประวัติศาสตร์สุโขทัย ไหว้พระเสริมสิริมงคล",
     seoDescription:
-      "เที่ยววัดหนองโว้ง จังหวัดกำแพงเพชร วัดบรรยากาศร่มรื่น เหมาะแก่การทำบุญ ไหว้พระ และปฏิบัติธรรม เสริมสิริมงคลแก่ชีวิต",
+      "เที่ยววัดมหาธาตุ สุโขทัย วัดสำคัญกลางอุทยานประวัติศาสตร์สุโขทัย โบราณสถานคู่เมืองไทย กราบพระพุทธรูปโบราณ เสริมสิริมงคล",
     keywords: [
-      "วัดหนองโว้ง",
-      "วัดหนองโว้ง กำแพงเพชร",
-      "เที่ยวกำแพงเพชร",
-      "วัดกำแพงเพชร",
-      "ไหว้พระ กำแพงเพชร"
+      "วัดมหาธาตุ สุโขทัย",
+      "Wat Mahathat Sukhothai",
+      "อุทยานประวัติศาสตร์สุโขทัย",
+      "เที่ยวสุโขทัย",
+      "วัดดังสุโขทัย"
     ],
 
     /* ---------- Highlight ---------- */
     highlight:
-      "วัดบรรยากาศสงบ ร่มรื่น เหมาะแก่การทำบุญ ไหว้พระ และปฏิบัติธรรมในจังหวัดกำแพงเพชร",
+      "วัดสำคัญที่สุดของอุทยานประวัติศาสตร์สุโขทัย โบราณสถานคู่เมืองไทยและมรดกโลก",
 
     /* ---------- Content ---------- */
     content: `
-วัดหนองโว้ง ตั้งอยู่ในจังหวัดกำแพงเพชร
-เป็นวัดที่มีบรรยากาศสงบเงียบ รายล้อมด้วยธรรมชาติ
+วัดมหาธาตุ เป็นวัดที่สำคัญที่สุดในอุทยานประวัติศาสตร์สุโขทัย
+ตั้งอยู่ใจกลางเมืองโบราณสุโขทัย และเป็นศูนย์กลางทางศาสนาในสมัยสุโขทัย
 
-ภายในวัดมีพระพุทธรูปประดิษฐานให้ประชาชนได้กราบไหว้ขอพร
-พร้อมทั้งพื้นที่สำหรับทำบุญและประกอบกิจกรรมทางพระพุทธศาสนา
+วัดแห่งนี้สร้างขึ้นในสมัยพ่อขุนศรีอินทราทิตย์
+และได้รับการพัฒนาในยุคพ่อขุนรามคำแหงมหาราช
+ภายในวัดมีเจดีย์ประธานทรงดอกบัวตูมซึ่งเป็นเอกลักษณ์ของศิลปะสุโขทัย
 
-วัดหนองโว้งเป็นศูนย์รวมจิตใจของชุมชนในพื้นที่
-เหมาะสำหรับผู้ที่ต้องการทำบุญ เสริมสิริมงคล
-และพักผ่อนจิตใจท่ามกลางบรรยากาศร่มรื่น
+รอบบริเวณวัดมีเจดีย์บริวารจำนวนมาก
+พร้อมพระพุทธรูปโบราณและซากวิหารที่งดงาม
+
+ปัจจุบันวัดมหาธาตุถือเป็นแลนด์มาร์กสำคัญของจังหวัดสุโขทัย
+และเป็นหนึ่งในสถานที่ท่องเที่ยวทางประวัติศาสตร์ที่มีชื่อเสียงระดับโลก
 `,
 
     meritHighlight: {
-      main: "เสริมสิริมงคล สงบใจ",
+      main: "เสริมสิริมงคลและความเจริญรุ่งเรือง",
       description:
-        "เหมาะสำหรับทำบุญ ไหว้พระ ขอพรเรื่องความร่มเย็นและความเป็นสิริมงคล",
+        "การกราบไหว้พระในวัดมหาธาตุเชื่อกันว่าจะช่วยเสริมสิริมงคลและความเจริญก้าวหน้าในชีวิต",
     },
 
     /* ---------- Blessing Technique ---------- */
     blessingTechnique: {
-      title: "แนวทางไหว้พระวัดหนองโว้ง",
+      title: "แนวทางการไหว้พระวัดมหาธาตุ สุโขทัย",
       steps: [
         "ตั้งจิตให้สงบก่อนเข้าสักการะ",
-        "จุดธูป 3 ดอก (ในจุดที่วัดจัดไว้)",
+        "จุดธูป 3 ดอก",
         "กล่าวคำบูชาพระรัตนตรัย",
-        "กราบ 3 ครั้งด้วยความเคารพ"
+        "อธิษฐานขอพรเพื่อความเป็นสิริมงคล"
       ],
       offering: [
         "ธูป 3 ดอก",
@@ -2773,82 +2798,82 @@ export const temples: Temple[] = [
         "เทียน"
       ],
       mantra:
-        "นะโม ตัสสะ ภควโต อรหโต สัมมาสัมพุทธัสสะ (3 จบ)"
+        "อิมานิ มะยัง ภันเต ทีปะธูปะปุปผะวะรานิ ระตะนัตตะยัสเสวะ อะภิปูเชมะ อัมหากง ระตะนัตตะยัสสะ ปูชา ทีฆะรัตตัง หิตะสุขาวะหา โหตุ อาสะวักขะยัปปัตติยา อะหัง พุทธัญจะ ธัมมัญจะ สังฆัญจะ อิเมหิ สักกาเรหิ สักกัจจัง อะภิปูชะยามิ"
     },
 
     /* ---------- Images ---------- */
     coverImage: {
-      src: "/imgnorth/wat-nong-wong-kamphaeng-phet.jpg",
-      alt: "วัดหนองโว้ง กำแพงเพชร",
-      title: "วัดหนองโว้ง กำแพงเพชร"
+      src: "/imgnorth/sukhothai/wat-mahathat/wat-mahathat-1.jpg",
+      alt: "วัดมหาธาตุ สุโขทัย",
+      title: "วัดมหาธาตุ อุทยานประวัติศาสตร์สุโขทัย"
     },
 
     contentImages: [
       {
-        src: "/imgnorth/wat-nong-wong-kamphaeng-phet.jpg",
-        alt: "พระพุทธรูปภายในวัดหนองโว้ง",
-        caption: "พระพุทธรูปประดิษฐานภายในวัด"
+        src: "/imgnorth/sukhothai/wat-mahathat/wat-mahathat-2.jpg",
+        alt: "เจดีย์วัดมหาธาตุ สุโขทัย",
+        caption: "เจดีย์ประธานทรงดอกบัวตูม ศิลปะสุโขทัย"
       },
       {
-        src: "/imgnorth/wat-nong-wong-kamphaeng-phet.jpg",
-        alt: "บรรยากาศร่มรื่นภายในวัด",
-        caption: "บรรยากาศสงบร่มรื่น เหมาะแก่การทำบุญ"
+        src: "/imgnorth/sukhothai/wat-mahathat/wat-mahathat-3.jpg",
+        alt: "พระพุทธรูปโบราณสุโขทัย",
+        caption: "เศียรพระพุทธรูปในรากต้นโพธิ์"
       }
     ],
 
     /* ---------- Location ---------- */
-    address: "จังหวัดกำแพงเพชร",
+    address: "อุทยานประวัติศาสตร์สุโขทัย ตำบลเมืองเก่า อำเภอเมืองสุโขทัย จังหวัดสุโขทัย 64210",
     coordinates: {
-      lat: 16.4700,
-      lng: 99.5200
+      lat: 17.0154,
+      lng: 99.7047
     },
-    googleMap: "https://maps.app.goo.gl/exampleWatNongWongKP",
+    googleMap: "https://maps.app.goo.gl/uiyZKuzXTnU5KxY36",
     openTime: "เปิดทุกวัน 06:00 - 18:00 น.",
-    entranceFee: "ไม่มีค่าเข้าชม",
+    entranceFee: "ค่าเข้าชมอุทยานประวัติศาสตร์สุโขทัย 100 บาท (ชาวต่างชาติ) / คนไทยฟรี",
     bestTimeToVisit:
-      "ช่วงเช้าหรือเย็น อากาศไม่ร้อน เหมาะแก่การทำบุญและพักผ่อนจิตใจ",
+      "ช่วงเช้าหรือเย็น แสงสวย เหมาะสำหรับถ่ายภาพและเที่ยวชมโบราณสถาน",
 
     /* ---------- Worship Tips ---------- */
     worshipTips: [
-      "แต่งกายสุภาพเรียบร้อย",
-      "รักษาความสงบภายในวัด",
-      "ปฏิบัติตามระเบียบของวัด",
+      "แต่งกายสุภาพ",
+      "เคารพสถานที่โบราณสถาน",
+      "ไม่ปีนป่ายโบราณสถาน",
       "ช่วยกันรักษาความสะอาด"
     ],
 
     tips: [
-      "ควรสอบถามเส้นทางก่อนเดินทาง",
-      "สามารถร่วมทำบุญตามศรัทธา",
-      "เหมาะสำหรับการมาปฏิบัติธรรมแบบเงียบสงบ"
+      "ควรเช่าจักรยานปั่นชมอุทยาน",
+      "ช่วงพระอาทิตย์ขึ้นและตกสวยมาก",
+      "สามารถเที่ยววัดอื่นในอุทยานได้ในวันเดียว"
     ],
 
     relatedPlaces: [
       {
-        name: "อุทยานประวัติศาสตร์กำแพงเพชร",
-        slug: "kamphaeng-phet-historical-park"
+        name: "วัดศรีชุม",
+        slug: "wat-si-chum-sukhothai"
       },
       {
-        name: "วัดพระแก้ว กำแพงเพชร",
-        slug: "wat-phra-kaew-kamphaeng-phet"
+        name: "วัดสระศรี",
+        slug: "wat-sa-si-sukhothai"
       }
     ],
 
     faq: [
       {
-        q: "วัดหนองโว้งอยู่ที่ไหน?",
-        a: "ตั้งอยู่ในจังหวัดกำแพงเพชร"
+        q: "วัดมหาธาตุ สุโขทัยอยู่ที่ไหน?",
+        a: "ตั้งอยู่ภายในอุทยานประวัติศาสตร์สุโขทัย จังหวัดสุโขทัย"
       },
       {
-        q: "มีค่าเข้าชมหรือไม่?",
-        a: "ไม่มีค่าเข้าชม สามารถเข้าทำบุญได้ตามปกติ"
+        q: "ค่าเข้าชมเท่าไร?",
+        a: "คนไทยฟรี ชาวต่างชาติประมาณ 100 บาท"
       },
       {
-        q: "เหมาะกับการไปช่วงเวลาใด?",
-        a: "ช่วงเช้าหรือเย็น อากาศไม่ร้อน เหมาะแก่การทำบุญ"
+        q: "ควรไปเที่ยวช่วงเวลาไหน?",
+        a: "ช่วงเช้าหรือช่วงเย็น แสงสวยและอากาศไม่ร้อน"
       }
     ],
 
-    schemaType: "Place"
+    schemaType: "TouristAttraction"
   },
 
   {
@@ -2856,6 +2881,7 @@ export const temples: Temple[] = [
     name: "วัดตระพังทอง",
     province: "สุโขทัย",
     region: "north",
+    muTags: ["health"],
 
     /* ---------- SEO ---------- */
     seoTitle:
@@ -2909,36 +2935,36 @@ export const temples: Temple[] = [
         "เทียน"
       ],
       mantra:
-        "นะโม ตัสสะ ภควโต อรหโต สัมมาสัมพุทธัสสะ (3 จบ)"
+        "อิมานิ มะยัง ภันเต ทีปะธูปะปุปผะวะรานิ ระตะนัตตะยัสเสวะ อะภิปูเชมะ อัมหากง ระตะนัตตะยัสสะ ปูชา ทีฆะรัตตัง หิตะสุขาวะหา โหตุ อาสะวักขะยัปปัตติยา อะหัง พุทธัญจะ ธัมมัญจะ สังฆัญจะ อิเมหิ สักกาเรหิ สักกัจจัง อะภิปูชะยามิ"
     },
 
     /* ---------- Images ---------- */
     coverImage: {
-      src: "/imgnorth/wat-traphang-thong-sukhothai.jpg",
+      src: "/imgnorth/sukhothai/wat-traphang-thong/wat-traphang-thong-1.jpg",
       alt: "วัดตระพังทอง สุโขทัย",
       title: "วัดตระพังทอง สุโขทัย"
     },
 
     contentImages: [
       {
-        src: "/imgnorth/wat-traphang-thong-sukhothai.jpg",
+        src: "/imgnorth/sukhothai/wat-traphang-thong/wat-traphang-thong-2.jpg",
         alt: "สะพานเข้าสู่วัดตระพังทอง",
         caption: "สะพานเชื่อมเข้าสู่วัดกลางสระน้ำ"
       },
       {
-        src: "/imgnorth/wat-traphang-thong-sukhothai.jpg",
+        src: "/imgnorth/sukhothai/wat-traphang-thong/wat-traphang-thong-3.jpg",
         alt: "พระพุทธรูปภายในวัดตระพังทอง",
         caption: "พระพุทธรูปประดิษฐานภายในวัด"
       }
     ],
 
     /* ---------- Location ---------- */
-    address: "ตำบลเมืองเก่า อำเภอเมืองสุโขทัย จังหวัดสุโขทัย 64210",
+    address: "วัดตระพังทอง 164 2 ตำบล เมืองเก่า อำเภอเมืองสุโขทัย สุโขทัย 64210",
     coordinates: {
       lat: 17.0169,
       lng: 99.7034
     },
-    googleMap: "https://maps.app.goo.gl/exampleWatTraphangThong",
+    googleMap: "https://maps.app.goo.gl/Jx8CY9evwwJff8VW7",
     openTime: "เปิดทุกวัน 06:00 - 18:00 น.",
     entranceFee: "ไม่มีค่าเข้าชม",
     bestTimeToVisit:
@@ -2987,12 +3013,12 @@ export const temples: Temple[] = [
     schemaType: "PlaceOfWorship"
   },
 
-
   {
     slug: "wat-si-chum-sukhothai",
     name: "วัดศรีชุม",
     province: "สุโขทัย",
     region: "north",
+    muTags: ["success"],
 
     /* ---------- SEO ---------- */
     seoTitle:
@@ -3050,24 +3076,24 @@ export const temples: Temple[] = [
         "กราบ 3 ครั้งด้วยจิตสงบ",
       ],
       offering: ["ดอกบัว", "ธูป 3 ดอก", "เทียน 1 คู่"],
-      mantra: "นะโม ตัสสะ ภควโต อรหโต สัมมาสัมพุทธัสสะ (3 จบ)",
+      mantra: "อิมานิ มะยัง ภันเต ทีปะธูปะปุปผะวะรานิ ระตะนัตตะยัสเสวะ อะภิปูเชมะ อัมหากง ระตะนัตตะยัสสะ ปูชา ทีฆะรัตตัง หิตะสุขาวะหา โหตุ อาสะวักขะยัปปัตติยา อะหัง พุทธัญจะ ธัมมัญจะ สังฆัญจะ อิเมหิ สักกาเรหิ สักกัจจัง อะภิปูชะยามิ",
     },
 
     /* ---------- Images ---------- */
     coverImage: {
-      src: "/imgnorth/wat-si-chum-sukhothai.jpg",
+      src: "/imgnorth/sukhothai/wat-si-chum/wat-si-chum-1.jpg",
       alt: "วัดศรีชุม พระอจนะ สุโขทัย",
       title: "วัดศรีชุม สุโขทัย",
     },
 
     contentImages: [
       {
-        src: "/imgnorth/wat-si-chum-sukhothai.jpg",
+        src: "/imgnorth/sukhothai/wat-si-chum/wat-si-chum-2.jpg",
         alt: "พระอจนะ วัดศรีชุม",
         caption: "พระอจนะ พระพุทธรูปองค์ใหญ่ภายในมณฑป",
       },
       {
-        src: "/imgnorth/wat-si-chum-sukhothai.jpg",
+        src: "/imgnorth/sukhothai/wat-si-chum/wat-si-chum-3.jpg",
         alt: "มณฑปวัดศรีชุม สุโขทัย",
         caption: "มณฑปโบราณที่ประดิษฐานพระอจนะ",
       },
@@ -3075,12 +3101,12 @@ export const temples: Temple[] = [
 
     /* ---------- Location ---------- */
     address:
-      "อุทยานประวัติศาสตร์สุโขทัย ตำบลเมืองเก่า อำเภอเมืองสุโขทัย จังหวัดสุโขทัย 64210",
+      "อุทยานประวัติศาสตร์สุโขทัย 498 12 ตำบล เมืองเก่า อำเภอเมืองสุโขทัย สุโขทัย 64210",
     coordinates: {
       lat: 17.0177,
       lng: 99.7075,
     },
-    googleMap: "https://maps.app.goo.gl/exampleWatSiChum",
+    googleMap: "https://maps.app.goo.gl/BWY8b4uctwR9pmFT6",
     openTime: "เปิดทุกวัน 06:00 - 18:00 น.",
     entranceFee: "มีค่าเข้าชมอุทยานประวัติศาสตร์สุโขทัย",
     bestTimeToVisit:
@@ -3200,24 +3226,24 @@ export const temples: Temple[] = [
         "น้ำสะอาด",
       ],
       mantra:
-        "นะโม ตัสสะ ภควโต อรหโต สัมมาสัมพุทธัสสะ (3 จบ)",
+        "อิมานิ มะยัง ภันเต ทีปะธูปะปุปผะวะรานิ ระตะนัตตะยัสเสวะ อะภิปูเชมะ อัมหากง ระตะนัตตะยัสสะ ปูชา ทีฆะรัตตัง หิตะสุขาวะหา โหตุ อาสะวักขะยัปปัตติยา อะหัง พุทธัญจะ ธัมมัญจะ สังฆัญจะ อิเมหิ สักกาเรหิ สักกัจจัง อะภิปูชะยามิ",
     },
 
     /* ---------- Images ---------- */
     coverImage: {
-      src: "/imgnorth/sukhothai-historical-park.jpg",
+      src: "/imgnorth/sukhothai/sukhothai-historical-park/sukhothai-historical-park-1.jpg",
       alt: "อุทยานประวัติศาสตร์สุโขทัย",
       title: "อุทยานประวัติศาสตร์สุโขทัย",
     },
 
     contentImages: [
       {
-        src: "/imgnorth/sukhothai-historical-park.jpg",
+        src: "/imgnorth/sukhothai/sukhothai-historical-park/sukhothai-historical-park-2.jpg",
         alt: "วัดมหาธาตุ สุโขทัย",
         caption: "วัดมหาธาตุ โบราณสถานสำคัญกลางเมืองสุโขทัย",
       },
       {
-        src: "/imgnorth/sukhothai-historical-park.jpg",
+        src: "/imgnorth/sukhothai/sukhothai-historical-park/sukhothai-historical-park-3.jpg",
         alt: "บรรยากาศเมืองเก่าสุโขทัย",
         caption: "บรรยากาศเมืองเก่าสุโขทัยภายในอุทยานประวัติศาสตร์",
       },
@@ -3231,7 +3257,7 @@ export const temples: Temple[] = [
       lng: 99.7047,
     },
 
-    googleMap: "https://maps.app.goo.gl/exampleSukhothaiPark",
+    googleMap: "https://maps.app.goo.gl/h2JdKHr8NaT6sqWX8",
     openTime: "เปิดทุกวัน 06:00 - 18:00 น.",
     entranceFee: "มีค่าเข้าชมอุทยานตามอัตราที่กำหนด",
     bestTimeToVisit:
