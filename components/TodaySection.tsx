@@ -11,11 +11,19 @@ interface TodayData {
 export default function TodaySection() {
   const [data, setData] = useState<TodayData | null>(null);
   useEffect(() => {
-    fetch("/api/today", { cache: "no-store" })
-      .then((res) => res.json())
-      .then((json) => {
-        if (json.success) setData(json);
-      });
+    const fetchData = () => {
+      fetch("/api/today", { cache: "no-store" })
+        .then((res) => res.json())
+        .then((json) => {
+          if (json.success) setData(json);
+        });
+    };
+
+    fetchData();
+
+    const interval = setInterval(fetchData, 3600000); // 1 ชั่วโมง
+
+    return () => clearInterval(interval);
   }, []);
 
   if (!data) {
