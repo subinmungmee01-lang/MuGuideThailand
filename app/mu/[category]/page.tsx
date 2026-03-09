@@ -65,6 +65,7 @@ export default function MuCategoryPage({
          Schema SEO
       =============================== */}
       <Script
+        id="mu-category-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
