@@ -5,7 +5,7 @@ export const provinceImages: Record<string, string> = {
   "กำแพงเพชร": "/imgnorth/kamphaeng-phet/kamphaeng-phet.jpg",
   "สุโขทัย": "/imgnorth/sukhothai/sukhothai.jpg",
 
-  "กาญจนบุรี": "/imagezone/ayutthaya.jpg",
+  "กาญจนบุรี": "/imgcentral/kanchanaburi/kanchanaburi.jpg",
   "อยุธยา": "/imagezone/ayutthaya.jpg",
   "นครปฐม": "/imagezone/nakhon-pathom.jpg",
 };

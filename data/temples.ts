@@ -3318,6 +3318,7 @@ export const temples: Temple[] = [
     name: "วัดพุตะเคียน",
     province: "กาญจนบุรี",
     region: "central",
+    muTags: ["luck"],
 
     /* ---------- SEO ---------- */
     seoTitle:
@@ -3373,26 +3374,26 @@ export const temples: Temple[] = [
         "เทียน 1 คู่"
       ],
       mantra:
-        "นะโม ตัสสะ ภควโต อรหโต สัมมาสัมพุทธัสสะ (3 จบ)"
+        "อะระหัง พุทโธ นะโมพุทธายะ นาคี นาคะ ลาโภ ลาภะ โภคา โภคะ นะมามิหัง ประสิทธิมัง นะโมพุทธายะ มะอะอุ"
     },
 
     /* ---------- Images ---------- */
     coverImage: {
-      src: "/imgcentral/wat-phu-takhian-kanchanaburi.jpg",
+      src: "/imgcentral/kanchanaburi/wat-phu-takhian/wat-phu-takhian-1.jpg",
       alt: "วัดพุตะเคียน กาญจนบุรี",
       title: "วัดพุตะเคียน กาญจนบุรี"
     },
 
     contentImages: [
       {
-        src: "/imgcentral/wat-phu-takhian-kanchanaburi.jpg",
-        alt: "บรรยากาศวัดพุตะเคียน",
-        caption: "บรรยากาศร่มรื่นภายในวัดพุตะเคียน"
+        src: "/imgcentral/kanchanaburi/wat-phu-takhian/wat-phu-takhian-2.jpg",
+        alt: "พ่อปู่พญาไชยเสนนาคราช",
+        caption: "วัดพุตะเคียน พ่อปู่พญาไชยเสนนาคราช"
       },
       {
-        src: "/imgcentral/wat-phu-takhian-kanchanaburi.jpg",
-        alt: "พระพุทธรูปภายในวัด",
-        caption: "พระพุทธรูปที่ประชาชนมากราบไหว้สักการะ"
+        src: "/imgcentral/kanchanaburi/wat-phu-takhian/wat-phu-takhian-3.jpg",
+        alt: "เจดีย์พระธาตุเจ้าจอมมอญ",
+        caption: "เจดีย์พระธาตุเจ้าจอมมอญ สัญลักษณ์แห่งมิตรภาพไทย-มอญ"
       }
     ],
 
@@ -3404,7 +3405,7 @@ export const temples: Temple[] = [
       lng: 99.7854
     },
 
-    googleMap: "https://maps.app.goo.gl/exampleWatPhuTakhian",
+    googleMap: "https://maps.app.goo.gl/DCRwmjHz62j6PW5H8",
     openTime: "เปิดทุกวัน 06:00 - 18:00 น.",
     entranceFee: "ไม่เสียค่าเข้าชม (ร่วมทำบุญตามศรัทธา)",
     bestTimeToVisit:
@@ -3518,24 +3519,24 @@ export const temples: Temple[] = [
         "น้ำดื่มหรือของทำบุญ",
       ],
       mantra:
-        "นะโม ตัสสะ ภควโต อรหโต สัมมาสัมพุทธัสสะ (3 จบ)",
+        "พระพุทธังอาราธนา พระพุทธเจ้าเปิดโลก พระธัมมังอาราธนา พระพุทธเจ้าเปิดโลก พระสังฆังอาราธนา พระพุทธเจ้าเปิดโลก นะเปิดบุญ โมเปิดบารมี พุทเปิดวาสนา ธาเปิดจิต ยะเปิดธรรม เปิดโลกเปิดจิตครอบจักรวาล ด้วยนะโมพุทธายะ ยะเปิดกรรมดี ธาเปิดงานดี พุทเปิดโชคดี โมเปิดลาภดี นะเปิดอำนาจดี เปิดสิ่งดีๆทั้งหลายมาสู่ตัวข้าพเจ้า ด้วยยะธาพุทโมนะ",
     },
 
     /* ---------- Images ---------- */
     coverImage: {
-      src: "/imgcentral/wat-ha-ngio-kanchanaburi.jpg",
+      src: "/imgcentral/kanchanaburi/wat-ha-ngio/wat-ha-ngio-1.jpg",
       alt: "วัดหาดงิ้ว จังหวัดกาญจนบุรี",
       title: "วัดหาดงิ้ว กาญจนบุรี",
     },
 
     contentImages: [
       {
-        src: "/imgcentral/wat-ha-ngio-kanchanaburi.jpg",
+      src: "/imgcentral/kanchanaburi/wat-ha-ngio/wat-ha-ngio-2.jpg",
         alt: "บรรยากาศวัดหาดงิ้ว",
         caption: "บรรยากาศสงบร่มรื่นภายในวัดหาดงิ้ว",
       },
       {
-        src: "/imgcentral/wat-ha-ngio-kanchanaburi.jpg",
+      src: "/imgcentral/kanchanaburi/wat-ha-ngio/wat-ha-ngio-3.jpg",
         alt: "พระพุทธรูปภายในวัดหาดงิ้ว",
         caption: "พระพุทธรูปศักดิ์สิทธิ์ภายในวัด",
       },
@@ -3543,13 +3544,13 @@ export const temples: Temple[] = [
 
     /* ---------- Location ---------- */
     address:
-      "ตำบลหาดงิ้ว อำเภอเมืองกาญจนบุรี จังหวัดกาญจนบุรี",
+      "ตำบลไทรโยค อำเภอไทรโยค กาญจนบุรี 71150",
     coordinates: {
       lat: 14.022,
       lng: 99.532,
     },
 
-    googleMap: "https://maps.app.goo.gl/example-hangio",
+    googleMap: "https://maps.app.goo.gl/nyPtNUFUdYb1bCuW9",
     openTime: "เปิดทุกวัน 06:00 - 18:00 น.",
     entranceFee: "ไม่เสียค่าเข้าชม",
     bestTimeToVisit:
