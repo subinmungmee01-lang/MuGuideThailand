@@ -23,10 +23,14 @@
   /* ===============================
      THAI GOLD LEAF SYSTEM
   =================================*/
-  --gold-light: #f2d46b;     /* แสงสะท้อนทองคำเปลว */
-  --gold-main: #d4af37;      /* ทองมาตรฐาน */
-  --gold-deep: #b8860b;      /* ทองเข้ม */
-  --gold-dark: #7a5a00;      /* เงาทองลึก */
+  --gold-light: #f2d46b;
+  /* แสงสะท้อนทองคำเปลว */
+  --gold-main: #d4af37;
+  /* ทองมาตรฐาน */
+  --gold-deep: #b8860b;
+  /* ทองเข้ม */
+  --gold-dark: #7a5a00;
+  /* เงาทองลึก */
 
   /* ===============================
      NEUTRAL
@@ -84,14 +88,12 @@ body {
      THAI GOLD GRADIENT TEXT
   =================================*/
   .text-gold {
-    background: linear-gradient(
-      120deg,
-      var(--gold-deep),
-      35%,
-      var(--gold-light),
-      65%,
-      var(--gold-deep)
-    );
+    background: linear-gradient(120deg,
+        var(--gold-deep),
+        35%,
+        var(--gold-light),
+        65%,
+        var(--gold-deep));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -99,14 +101,12 @@ body {
 
   /* Gold Shine Animation */
   .gold-shine {
-    background: linear-gradient(
-      120deg,
-      var(--gold-dark),
-      40%,
-      var(--gold-light),
-      60%,
-      var(--gold-dark)
-    );
+    background: linear-gradient(120deg,
+        var(--gold-dark),
+        40%,
+        var(--gold-light),
+        60%,
+        var(--gold-dark));
     background-size: 200% auto;
     -webkit-background-clip: text;
     color: transparent;
@@ -162,15 +162,13 @@ body {
      THAI GOLD BOX (เมทัลลิก)
   =================================*/
   .gold-box {
-    background: linear-gradient(
-      135deg,
-      var(--gold-light),
-      var(--gold-main),
-      var(--gold-deep)
-    );
+    background: linear-gradient(135deg,
+        var(--gold-light),
+        var(--gold-main),
+        var(--gold-deep));
     color: #4a2c00;
     border: 1px solid var(--gold-main);
-    box-shadow: 0 20px 60px rgba(184,134,11,0.35);
+    box-shadow: 0 20px 60px rgba(184, 134, 11, 0.35);
     position: relative;
     overflow: hidden;
   }
@@ -179,12 +177,10 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      120deg,
-      rgba(255,255,255,0.35),
-      rgba(255,255,255,0.05),
-      rgba(255,255,255,0.25)
-    );
+    background: linear-gradient(120deg,
+        rgba(255, 255, 255, 0.35),
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.25));
     opacity: 0.35;
     pointer-events: none;
   }
@@ -193,12 +189,10 @@ body {
      GOLD BUTTON
   =================================*/
   .btn-gold {
-    background: linear-gradient(
-      135deg,
-      var(--gold-light),
-      var(--gold-main),
-      var(--gold-deep)
-    );
+    background: linear-gradient(135deg,
+        var(--gold-light),
+        var(--gold-main),
+        var(--gold-deep));
     color: #4a2c00;
     font-weight: 600;
     padding: 0.75rem 1.5rem;
@@ -208,10 +202,79 @@ body {
 
   .btn-gold:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(184,134,11,0.4);
+    box-shadow: 0 10px 30px rgba(184, 134, 11, 0.4);
+  }
+
+  /* ================================
+   INCENSE SMOKE
+================================ */
+
+  .smoke-container {
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 200px;
+    pointer-events: none;
+    z-index: 30;
+  }
+
+  .smoke-img {
+    position: absolute;
+    width: 90px;
+    opacity: .7;
+  }
+
+  /* layers */
+
+  .smoke1 {
+    left: -30px;
+    animation: smokeFloat 6s infinite linear;
+  }
+
+  .smoke2 {
+    left: 0;
+    animation: smokeFloat 6s infinite linear;
+    animation-delay: 2s;
+  }
+
+  .smoke3 {
+    left: 30px;
+    animation: smokeFloat 6s infinite linear;
+    animation-delay: 4s;
   }
 
 
+  /* animation */
 
-  
+  @keyframes smokeFloat {
+
+    0% {
+      transform: translateY(0) scale(.6);
+      opacity: 0;
+    }
+
+    20% {
+      opacity: .7;
+    }
+
+    50% {
+      transform: translateY(-70px) translateX(-10px) scale(.9);
+      opacity: .5;
+    }
+
+    80% {
+      transform: translateY(-130px) translateX(10px) scale(1.2);
+      opacity: .3;
+    }
+
+    100% {
+      transform: translateY(-190px) scale(1.5);
+      opacity: 0;
+    }
+
+  }
+
+
 }
