@@ -9,7 +9,13 @@ export const regions = {
   central: {
     slug: "central",
     name: "ภาคกลาง",
-    provinces: ["อยุธยา", "นครปฐม", "กาญจนบุรี"]
+    provinces: ["กรุงเทพมหานคร","อยุธยา", "นครปฐม"]
+  },
+
+  west: {
+    slug: "west",
+    name: "ภาคตะวันตก",
+    provinces: ["กาญจนบุรี"]
   },
 
   south: {
