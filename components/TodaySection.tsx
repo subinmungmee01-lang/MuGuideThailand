@@ -39,7 +39,7 @@ export default function TodaySection() {
     <section className="relative py-32 md:py-40 overflow-hidden bg-gradient-to-b from-[#faf6ee] via-[#f3ead7] to-[#faf6ee]">
 
       {/* Thai Pattern */}
-      <div className="absolute inset-0 bg-[url('/thai-pattern.png')] bg-repeat bg-[background-size:10px] opacity-5 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[url('/thai-pattern.png')] bg-repeat bg-[background-size:80px] opacity-5 pointer-events-none"></div>
 
       <div className="relative max-w-6xl mx-auto px-4 md:px-6">
 
@@ -62,6 +62,7 @@ export default function TodaySection() {
 
         </div>
 
+
         {/* ================= HERO NUMBER ================= */}
 
         <div className="relative text-center mb-24">
@@ -77,45 +78,91 @@ export default function TodaySection() {
 
 
           {/* ===== Numbers ===== */}
-          <div className="flex justify-center gap-6 sm:gap-10 md:gap-16 relative z-20">
 
-            {data.incenseNumbers.split("").map((num, i) => (
+          {/* ===== Numbers ===== */}
+          <div className="flex justify-center gap-4 sm:gap-8 md:gap-14 relative z-20">
 
-              <div key={i} className="relative flex flex-col items-center">
+            {data.incenseNumbers.split("").map((num, i) => {
 
-                {/* Smoke */}
-                <img
-                  src="/SmokeT.png"
-                  alt="incense smoke"
-                  className={`
-              absolute -top-20 sm:-top-24 w-16 sm:w-20 opacity-70
-              ${i === 0 ? "smoke1" : ""}
-              ${i === 1 ? "smoke2" : ""}
-              ${i === 2 ? "smoke3" : ""}
-              `}
-                />
+              const smoke1 =
+                i % 3 === 0 ? "smoke1" :
+                  i % 3 === 1 ? "smoke2" :
+                    "smoke3";
 
-                {/* Number */}
-                <div
-                  className="
-              text-[70px]
-              sm:text-[90px]
-              md:text-[140px]
-              font-extrabold
-              tracking-[0.1em]
-              gold-shine
-              drop-shadow-[0_0_40px_rgba(212,175,55,0.6)]
-              "
-                >
-                  {num}
+              const smoke2 =
+                i % 3 === 0 ? "smoke2" :
+                  i % 3 === 1 ? "smoke3" :
+                    "smoke1";
+
+              return (
+
+                <div key={i} className="relative flex flex-col items-center">
+
+                  {/* Number */}
+                  <div
+                    className="
+          relative z-10
+          text-[70px]
+          sm:text-[90px]
+          md:text-[140px]
+          font-extrabold
+          tracking-[0.08em]
+          gold-shine
+          drop-shadow-[0_0_40px_rgba(212,175,55,0.6)]
+          "
+                  >
+                    {num}
+                  </div>
+
+                  {/* Smoke layer 1 */}
+                  <img
+                    src="/SmokeT.png"
+                    alt="smoke"
+                    className={`
+          smoke-img
+          absolute bottom-2 left-1/2 -translate-x-1/2
+          w-20 sm:w-24
+          opacity-90
+          z-30
+          ${smoke1}
+          `}
+                  />
+
+                  {/* Smoke layer 2 */}
+                  <img
+                    src="/SmokeT.png"
+                    alt="smoke"
+                    className={`
+          smoke-img
+          absolute bottom-2 left-1/2 -translate-x-1/2
+          w-24 sm:w-28
+          opacity-70
+          blur-sm
+          z-30
+          ${smoke2}
+          `}
+                  />
+
+                  {/* Smoke layer 3 (เพิ่มความหนา) */}
+                  <img
+                    src="/SmokeT.png"
+                    alt="smoke"
+                    className={`
+          smoke-img
+          absolute bottom-2 left-1/2 -translate-x-1/2
+          w-28 sm:w-32
+          opacity-50
+          blur-md
+          z-30
+          ${smoke1}
+          `}
+                  />
+
                 </div>
 
-                {/* Incense stick */}
-                <div className="incense mt-2"></div>
+              )
 
-              </div>
-
-            ))}
+            })}
 
           </div>
 
