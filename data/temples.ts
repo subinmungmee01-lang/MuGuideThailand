@@ -5093,6 +5093,7 @@ export const temples: Temple[] = [
 
     schemaType: "PlaceOfWorship"
   },
+  
   {
     slug: "wat-bowonniwet-vihara-bangkok",
     name: "วัดบวรนิเวศราชวรวิหาร",
