@@ -64,7 +64,7 @@ export default function Home() {
       <Hero />
 
       {/* เลขธูปวันนี้ */}
-      <section className="py-12 md:py-16">
+      <section id="today" className="py-12 md:py-16">
         <TodaySection />
       </section>
 

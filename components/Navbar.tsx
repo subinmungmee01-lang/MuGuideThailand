@@ -71,12 +71,8 @@ return ( <header
         หน้าแรก
       </Link>
 
-      <Link href="/incense" className={linkClass("/incense")}>
+      <Link href="/#today" className={linkClass("/incense")}>
         เลขธูปวันนี้
-      </Link>
-
-      <Link href="/colors" className={linkClass("/colors")}>
-        สีมงคล
       </Link>
 
       <button
@@ -248,8 +244,7 @@ return ( <header
     <div className="flex flex-col gap-6 p-8 text-[18px]">
 
       <Link href="/">หน้าแรก</Link>
-      <Link href="/incense">เลขธูปวันนี้</Link>
-      <Link href="/colors">สีมงคล</Link>
+      <Link href="/#today">เลขธูปวันนี้</Link>
       <Link href="/temples">ค้นหาวัด</Link>
       <Link href="/articles">บทความ</Link>
 
