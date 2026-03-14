@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Prompt } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import Script from "next/script";
 
 const prompt = Prompt({
   subsets: ["thai", "latin"],
