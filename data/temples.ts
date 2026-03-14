@@ -5581,24 +5581,24 @@ export const temples: Temple[] = [
     },
 
     coverImage: {
-      src: "/imgcentral/bangkok/wat-ratchanatdaramwat-ratchanatdaram-1.jpg",
+      src: "/imgcentral/bangkok/wat-ratchanatdaram/wat-ratchanatdaram-1.jpg",
       alt: "โลหะปราสาท วัดราชนัดดารามวรวิหาร กรุงเทพมหานคร",
       title: "โลหะปราสาท วัดราชนัดดารามวรวิหาร"
     },
 
     contentImages: [
       {
-      src: "/imgcentral/bangkok/wat-ratchanatdaramwat-ratchanatdaram-2.jpg",
+      src: "/imgcentral/bangkok/wat-ratchanatdaram/wat-ratchanatdaram-2.jpg",
         alt: "บรรยากาศรอบโลหะปราสาท",
         caption: "บรรยากาศรอบโลหะปราสาท สถาปัตยกรรมสำคัญของวัดราชนัดดารามวรวิหาร"
       },
       {
-      src: "/imgcentral/bangkok/wat-ratchanatdaramwat-ratchanatdaram-3.jpg",
+      src: "/imgcentral/bangkok/wat-ratchanatdaram/wat-ratchanatdaram-3.jpg",
         alt: "พระพุทธเสฏฐุตตมมุนินทร์",
         caption: "พระพุทธเสฏฐุตตมมุนินทร์ ภายในพระอุโบสถภายในวัดราชนัดดารามวรวิหาร"
       },
-      {
-      src: "/imgcentral/bangkok/wat-ratchanatdaramwat-ratchanatdaram-4.jpg",
+      { 
+      src: "/imgcentral/bangkok/wat-ratchanatdaram/wat-ratchanatdaram-4.jpg",
         alt: "พระบรมสารีริกธาตุ วัดราชนัดดารามวรวิหาร",
         caption: "พระบรมสารีริกธาตุ ด้านในโลหะปราสาทวัดราชนัดดารามวรวิหาร"
       }
