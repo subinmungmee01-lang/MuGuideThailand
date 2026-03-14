@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Prompt } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Script from "next/script";
 
 const prompt = Prompt({
   subsets: ["thai", "latin"],
@@ -88,6 +89,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="th" className="text-[18px] md:text-[19px]">
+
+      <head>
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-4539487034330957"
+        />
+
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4539487034330957"
+          crossOrigin="anonymous"
+        ></script>
+      </head>
+
       <body
         className={`${prompt.className} antialiased bg-[#f6f2ea] text-gray-800 leading-relaxed`}
       >
