@@ -78,6 +78,15 @@ export type Temple = {
   worshipTips?: string[];
   tips?: string[];
 
+  /* ---------- Nearby Hotels (Affiliate) ---------- */
+  nearbyHotels?: {
+    name: string;
+    distance?: string;
+    highlight?: string;
+    link: string;
+    image?: string;
+  }[];
+
   /* ---------- Related ---------- */
   relatedPlaces?: {
     name: string;
@@ -5775,6 +5784,17 @@ export const temples: Temple[] = [
       "สามารถเที่ยววัดใกล้เคียง เช่น วัดสุทัศนเทพวราราม",
       "ควรมาเที่ยวช่วงเช้าเพื่อหลีกเลี่ยงอากาศร้อน",
       "เผื่อเวลาเดินชมสถาปัตยกรรมภายในวัด"
+    ],
+
+    nearbyHotels: [
+
+      {
+        name: "Villa De Khaosan",
+        distance: "1.2 km จากวัด",
+        highlight: "โรงแรมบูติกย่านข้าวสาร",
+        link: "https://www.agoda.com/"
+      },
+
     ],
 
     relatedPlaces: [

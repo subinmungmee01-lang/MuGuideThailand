@@ -331,6 +331,51 @@ export default function TemplePage({
             </div>
           </section>
 
+          {/* ================= Nearby Hotels (Agoda) ================= */}
+          {temple.nearbyHotels && temple.nearbyHotels.length > 0 && (
+            <section className="pt-16">
+              <h2 className="text-3xl font-bold text-burgundy mb-10 text-center">
+                🏨 ที่พักใกล้{temple.name}
+              </h2>
+
+              <div className="grid md:grid-cols-3 gap-8">
+
+                {temple.nearbyHotels.map((hotel, index) => (
+                  <a
+                    key={index}
+                    href={hotel.link}
+                    target="_blank"
+                    rel="nofollow sponsored"
+                    className="group border border-gray-100 rounded-2xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-white"
+                  >
+
+                    <h3 className="text-lg font-semibold text-burgundy group-hover:text-gold transition">
+                      {hotel.name}
+                    </h3>
+
+                    {hotel.distance && (
+                      <p className="text-sm text-gray-500 mt-1">
+                        {hotel.distance}
+                      </p>
+                    )}
+
+                    {hotel.highlight && (
+                      <p className="text-gray-600 text-sm mt-3 leading-relaxed">
+                        {hotel.highlight}
+                      </p>
+                    )}
+
+                    <span className="inline-block mt-5 text-gold font-semibold">
+                      ดูราคาใน Agoda →
+                    </span>
+
+                  </a>
+                ))}
+
+              </div>
+            </section>
+          )}
+
           {/* FAQ Section */}
           {temple.faq && temple.faq.length > 0 && (
             <section className="pt-10">
@@ -357,7 +402,7 @@ export default function TemplePage({
                 {temple.relatedPlaces.map((place) => {
                   const fullTemple = temples.find(t => t.slug === place.slug);
                   if (!fullTemple) return null;
-                  
+
 
                   return (
                     <Link
