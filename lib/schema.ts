@@ -1,7 +1,7 @@
 // lib/schema.ts
 import { Temple } from "@/data/temples";
 
-const BASE_URL = "https://muguidethailand.com";
+const BASE_URL = "https://www.muguide-thailand.com";
 
 export function generateTempleSchema(temple: Temple) {
   return {

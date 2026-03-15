@@ -23,7 +23,7 @@ export default function TodaySection() {
 
     fetchData();
 
-    const interval = setInterval(fetchData, 3600000); // 1 ชั่วโมง
+    const interval = setInterval(fetchData, 300000); // 5 นาที
 
     return () => clearInterval(interval);
   }, []);

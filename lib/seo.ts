@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { Temple } from "@/data/temples";
 
-const BASE_URL = "https://muguidethailand.com";
+const BASE_URL = "https://www.muguide-thailand.com";
 
 export function generateTempleMetadata(temple: Temple): Metadata {
   const url = `${BASE_URL}/temple/${temple.slug}`;

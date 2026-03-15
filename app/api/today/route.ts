@@ -1,5 +1,8 @@
 // app/api/today/route.ts
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import { NextResponse } from "next/server";
 import { luckyData } from "@/data/luckyColors";
 import { getThaiDate } from "@/lib/getThaiDate";
@@ -14,16 +17,25 @@ export async function GET() {
     const todayData = luckyData[day];
 
     const round = getCurrentLotteryRound();
-
     const { incense, latestDate } = generateStatIncense();
 
-    return NextResponse.json({
-      success: true, strategy: "Statistical Weighted Model v1 (Per Lottery Round)",
-      lotteryReference: latestDate, round: `${round.roundDay}/${round.month}/${round.year}`,
-      dayNameTH: todayData.dayNameTH, colors: todayData.colors, incenseNumbers: incense,
-      updatedAt: new Date().toISOString(),
-    },
-      { headers: { "Cache-Control": "no-store, no-cache, must-revalidate", }, });
+    return NextResponse.json(
+      {
+        success: true,
+        strategy: "Statistical Weighted Model v1 (Per Lottery Round)",
+        lotteryReference: latestDate,
+        round: `${round.roundDay}/${round.month}/${round.year}`,
+        dayNameTH: todayData.dayNameTH,
+        colors: todayData.colors,
+        incenseNumbers: incense,
+        updatedAt: new Date().toISOString(),
+      },
+      {
+        headers: {
+          "Cache-Control": "no-store, no-cache, must-revalidate",
+        },
+      }
+    );
   } catch {
     return NextResponse.json(
       {
