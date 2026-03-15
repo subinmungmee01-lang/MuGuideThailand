@@ -84,7 +84,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-4">
 
               <Link
-                href="/today"
+                href="/#today"
                 className="flex items-center gap-2 bg-gradient-to-r from-yellow-600 to-amber-400 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition"
               >
                 <Dice5 className="w-5 h-5" />
