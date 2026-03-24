@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Prompt } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import CookieConsent from "@/components/CookieConsent";
 
 const prompt = Prompt({
   subsets: ["thai", "latin"],
@@ -100,6 +101,24 @@ export default function RootLayout({
         />
         <meta name="agd-partner-manual-verification" />
 
+        {/* Consent Mode (ต้องมาก่อนสุด 🔥) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+
+        gtag('consent', 'default', {
+          ad_storage: 'denied',
+          analytics_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied'
+        });
+      `,
+          }}
+        />
+
+        {/* Google AdSense */}
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4539487034330957"
@@ -114,15 +133,11 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-4024X66DN6');
       `,
           }}
         />
-
-
       </head>
 
       <body
