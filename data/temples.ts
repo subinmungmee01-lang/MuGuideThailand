@@ -6422,7 +6422,7 @@ export const temples: Temple[] = [
       {
         src: "/imgcentral/bangkok/lee-tee-miao/lee-tee-miao-3.jpg",
         alt: "จุดไหว้เจ้าแม่กวนอิม",
-        caption: "จุดขอพรความรักกับเจ้าแม่กวนอิมด้านล่างศาล"
+        caption: "จุดขอพรกับเจ้าแม่กวนอิมด้านล่างศาล"
       }
     ],
 
