@@ -99,12 +99,30 @@ export default function RootLayout({
           content="ca-pub-4539487034330957"
         />
         <meta name="agd-partner-manual-verification" />
-        
+
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4539487034330957"
           crossOrigin="anonymous"
         ></script>
+
+        {/* Google Analytics (GA4) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-4024X66DN6"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-4024X66DN6');
+      `,
+          }}
+        />
+
+
       </head>
 
       <body
