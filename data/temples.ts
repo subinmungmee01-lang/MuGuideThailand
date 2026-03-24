@@ -6432,7 +6432,7 @@ export const temples: Temple[] = [
       lng: 100.5083
     },
 
-    googleMap: "https://maps.google.com/?q=13.7465,100.5083",
+    googleMap: "https://share.google/mdMs6EaFGIs67SyuP",
 
     openTime: "เปิดทุกวัน 08:00–17:00 น.",
     entranceFee: "ไม่เสียค่าเข้าชม",
