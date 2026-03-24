@@ -22,15 +22,12 @@ export const metadata: Metadata = {
     "รวมเลขธูปวันนี้ สีมงคลประจำวัน วัดดังทั่วไทย พร้อมเคล็ดลับเสริมดวงการเงิน การงาน และความรัก อัปเดตทุกวัน",
 
   keywords: [
-    // สายมูหลัก
     "เลขธูปวันนี้",
     "สีมงคลวันนี้",
     "สีมงคลประจำวัน",
     "เสริมดวง",
     "สายมู",
     "ขอพรที่ไหนดี",
-
-    // สถานที่ไหว้พระ
     "สถานที่ไหว้พระ",
     "สถานที่ไหว้พระในประเทศไทย",
     "ที่ไหว้พระใกล้ฉัน",
@@ -38,22 +35,16 @@ export const metadata: Metadata = {
     "วัดขอพร",
     "วัดศักดิ์สิทธิ์",
     "พระธาตุศักดิ์สิทธิ์",
-
-    // ท่องเที่ยวสายบุญ
     "เที่ยวไหว้พระ",
     "ไหว้พระ 1 วัน",
     "ทริปไหว้พระ",
     "ไหว้พระใกล้กรุงเทพ",
     "เที่ยววัดดัง",
     "สายบุญเที่ยวไหนดี",
-
-    // ขอพรเฉพาะด้าน
     "วัดขอพรเรื่องงาน",
     "วัดขอพรโชคลาภ",
     "วัดขอพรความรัก",
     "วัดแก้ชง",
-
-    // Local SEO
     "วัดดังอยุธยา",
     "วัดดังกรุงเทพ",
     "วัดดังนครปฐม",
@@ -89,8 +80,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="th" className="text-[18px] md:text-[19px]">
-
       <head>
+        {/* ✅ Mobile SEO */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
         <meta
           name="google-site-verification"
           content="zlAj3pAzTH14IvFGVPKRdgrRIt70Mysuxaj5arg0WzM"
@@ -101,31 +94,31 @@ export default function RootLayout({
         />
         <meta name="agd-partner-manual-verification" />
 
-        {/* Consent Mode (ต้องมาก่อนสุด 🔥) */}
+        {/* ✅ Consent Mode (ต้องมาก่อนสุด) */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
 
-        gtag('consent', 'default', {
-          ad_storage: 'denied',
-          analytics_storage: 'denied',
-          ad_user_data: 'denied',
-          ad_personalization: 'denied'
-        });
-      `,
+              gtag('consent', 'default', {
+                ad_storage: 'denied',
+                analytics_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied'
+              });
+            `,
           }}
         />
 
-        {/* Google AdSense */}
+        {/* ✅ Google AdSense */}
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4539487034330957"
           crossOrigin="anonymous"
         ></script>
 
-        {/* Google Analytics (GA4) */}
+        {/* ✅ Google Analytics (GA4) */}
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-4024X66DN6"
@@ -133,9 +126,11 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-        gtag('js', new Date());
-        gtag('config', 'G-4024X66DN6');
-      `,
+              gtag('js', new Date());
+              gtag('config', 'G-4024X66DN6', {
+                anonymize_ip: true
+              });
+            `,
           }}
         />
       </head>
@@ -145,6 +140,9 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+
+        {/* ✅ Cookie Banner (สำคัญมาก) */}
+        <CookieConsent />
       </body>
     </html>
   );
