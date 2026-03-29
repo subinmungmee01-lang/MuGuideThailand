@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MU GUIDE THAILAND",
     description:
-      "ดูเลขธูปวันนี้ สีมงคล เสริมดวง ไหว้พระ และวัดดังทั่วไทย อัปเดตทุกวัน",
+      "ดูเลขธูปวันนี้ สีมงคล เสริมดวง ไหว้พระ ขอพร และวัดดังทั่วไทย อัปเดตทุกวัน",
     url: "https://www.muguide-thailand.com",
     siteName: "MU GUIDE THAILAND",
     locale: "th_TH",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "MU GUIDE THAILAND",
-    description: "เลขธูปวันนี้ สีมงคล และวัดดังทั่วไทย ไหว้พระขอพร",
+    description: "เลขธูปวันนี้ เสริมดวง สีมงคล และวัดดังทั่วไทย ไหว้พระขอพร",
   },
 
   robots: {
