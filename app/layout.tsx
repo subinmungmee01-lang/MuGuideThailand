@@ -14,15 +14,16 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.muguide-thailand.com"),
 
   title: {
-    default: "MU GUIDE THAILAND | เลขธูปวันนี้ สีมงคล วัดดังทั่วไทย",
+    default: "MU GUIDE THAILAND | เลขธูปวันนี้ เสริมดวง ไหว้พระ ขอพร สีมงคล วัดดังทั่วไทย",
     template: "%s | MU GUIDE THAILAND",
   },
 
   description:
-    "รวมเลขธูปวันนี้ สีมงคลประจำวัน วัดดังทั่วไทย พร้อมเคล็ดลับเสริมดวงการเงิน การงาน และความรัก อัปเดตทุกวัน",
+    "รวมเลขธูปวันนี้ เสริมดวง ไหว้พระ ขอพร สีมงคลประจำวัน วัดดังทั่วไทย พร้อมเคล็ดลับเสริมดวงการเงิน การงาน และความรัก อัปเดตทุกวัน",
 
   keywords: [
     "เลขธูปวันนี้",
+    "ไหว้พระ",
     "สีมงคลวันนี้",
     "สีมงคลประจำวัน",
     "เสริมดวง",
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MU GUIDE THAILAND",
     description:
-      "ดูเลขธูปวันนี้ สีมงคล และวัดดังทั่วไทย อัปเดตทุกวัน",
+      "ดูเลขธูปวันนี้ สีมงคล เสริมดวง ไหว้พระ และวัดดังทั่วไทย อัปเดตทุกวัน",
     url: "https://www.muguide-thailand.com",
     siteName: "MU GUIDE THAILAND",
     locale: "th_TH",
@@ -64,7 +65,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "MU GUIDE THAILAND",
-    description: "เลขธูปวันนี้ สีมงคล และวัดดังทั่วไทย",
+    description: "เลขธูปวันนี้ สีมงคล และวัดดังทั่วไทย ไหว้พระขอพร",
   },
 
   robots: {
