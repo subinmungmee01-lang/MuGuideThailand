@@ -10,52 +10,54 @@ const prompt = Prompt({
   display: "swap",
 });
 
+const currentDate = new Date().toLocaleDateString("th-TH", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.muguide-thailand.com"),
 
   title: {
-    default: "MU GUIDE THAILAND | เลขธูปวันนี้ เสริมดวง ไหว้พระ ขอพร สีมงคล วัดดังทั่วไทย",
+    default:
+      "เลขธูปวันนี้ (อัปเดตล่าสุด) พร้อมวิธีเสริมดวง การเงิน ความรัก | MU GUIDE THAILAND",
     template: "%s | MU GUIDE THAILAND",
   },
 
-  description:
-    "รวมเลขธูปวันนี้ เสริมดวง ไหว้พระ ขอพร สีมงคลประจำวัน วัดดังทั่วไทย พร้อมเคล็ดลับเสริมดวงการเงิน การงาน และความรัก อัปเดตทุกวัน",
+  description: `รวมเลขธูปวันนี้ อัปเดตล่าสุด ${currentDate} พร้อมวิธีเสริมดวง การเงิน ความรัก สีมงคล และวัดดังทั่วไทย ครบจบในที่เดียว`,
 
   keywords: [
     "เลขธูปวันนี้",
-    "ไหว้พระ",
+    "เลขธูปวันนี้ ล่าสุด",
+    "เลขธูปวันนี้ 2569",
+    "เสริมดวง",
+    "วิธีเสริมดวง",
+    "เสริมดวงการเงิน",
+    "เสริมดวงความรัก",
+    "เสริมดวงโชคลาภ",
     "สีมงคลวันนี้",
     "สีมงคลประจำวัน",
-    "เสริมดวง",
-    "สายมู",
-    "ขอพรที่ไหนดี",
-    "สถานที่ไหว้พระ",
-    "สถานที่ไหว้พระในประเทศไทย",
-    "ที่ไหว้พระใกล้ฉัน",
-    "วัดดังทั่วไทย",
     "วัดขอพร",
     "วัดศักดิ์สิทธิ์",
-    "พระธาตุศักดิ์สิทธิ์",
-    "เที่ยวไหว้พระ",
-    "ไหว้พระ 1 วัน",
-    "ทริปไหว้พระ",
-    "ไหว้พระใกล้กรุงเทพ",
-    "เที่ยววัดดัง",
-    "สายบุญเที่ยวไหนดี",
-    "วัดขอพรเรื่องงาน",
-    "วัดขอพรโชคลาภ",
-    "วัดขอพรความรัก",
-    "วัดแก้ชง",
+    "วัดขอหวย",
+    "วัดดังทั่วไทย",
+    "ไหว้พระ",
+    "ขอพรที่ไหนดี",
+    "ที่ไหว้พระใกล้ฉัน",
     "วัดดังอยุธยา",
     "วัดดังกรุงเทพ",
     "วัดดังนครปฐม",
-    "สถานที่ไหว้พระอยุธยา"
+    "สายมู",
+    "เคล็ดลับสายมู",
+    "วิธีเสริมดวงเห็นผลเร็ว"
   ],
 
   openGraph: {
-    title: "MU GUIDE THAILAND",
+    title:
+      "เลขธูปวันนี้ อัปเดตล่าสุด | เสริมดวง การเงิน ความรัก วัดดังทั่วไทย",
     description:
-      "ดูเลขธูปวันนี้ สีมงคล เสริมดวง ไหว้พระ ขอพร และวัดดังทั่วไทย อัปเดตทุกวัน",
+      "อัปเดตเลขธูปวันนี้ พร้อมสีมงคล วิธีเสริมดวง และวัดดังทั่วไทย ครบจบในเว็บเดียว",
     url: "https://www.muguide-thailand.com",
     siteName: "MU GUIDE THAILAND",
     locale: "th_TH",
@@ -64,8 +66,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "MU GUIDE THAILAND",
-    description: "เลขธูปวันนี้ เสริมดวง สีมงคล และวัดดังทั่วไทย ไหว้พระขอพร",
+    title: "เลขธูปวันนี้ อัปเดตล่าสุด | MU GUIDE THAILAND",
+    description:
+      "ดูเลขธูปวันนี้ เสริมดวง สีมงคล และวัดดังทั่วไทย อัปเดตทุกวัน",
   },
 
   robots: {
@@ -112,6 +115,25 @@ export default function RootLayout({
           }}
         />
 
+        {/* ✅ Structured Data (SEO 2026 สำคัญมาก) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "MU GUIDE THAILAND",
+              url: "https://www.muguide-thailand.com",
+              potentialAction: {
+                "@type": "SearchAction",
+                target:
+                  "https://www.muguide-thailand.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
+
         {/* ✅ Google AdSense */}
         <script
           async
@@ -142,7 +164,7 @@ export default function RootLayout({
         <Navbar />
         {children}
 
-        {/* ✅ Cookie Banner (สำคัญมาก) */}
+        {/* ✅ Cookie Banner */}
         <CookieConsent />
       </body>
     </html>
