@@ -20,6 +20,12 @@ export function provinceToSlug(name: string) {
     .replace("กาญจนบุรี", "kanchanaburi")
     //ภาคกลาง
     .replace("กรุงเทพมหานคร", "bangkok")
+    .replace("นนทบุรี", "Nonthaburi")
+    .replace("ปทุมธานี", " pathum-thani")
+
+   
+
+  
 
 
 

@@ -8,4 +8,8 @@ export const provinceImages: Record<string, string> = {
   "กาญจนบุรี": "/imgwest/kanchanaburi/kanchanaburi.jpg",
   "อยุธยา": "/imagezone/ayutthaya.jpg",
   "นครปฐม": "/imagezone/nakhon-pathom.jpg",
+  "นนทบุรี": "/imagezone/non.jpg",
+  "ปทุมธานี": "/imagezone/pathum-thani.jpg",
+
+  
 };
