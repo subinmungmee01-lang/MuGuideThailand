@@ -136,12 +136,12 @@ export default function RegionPage({
               <article className="bg-white border border-gray-100 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
 
                 {/* Image */}
-                <div className="relative w-full h-56 overflow-hidden">
+                <div className="relative w-full h-[280px] md:h-56 overflow-hidden">
                   <Image
                     src={provinceImages[temple.province] || "/no-image.jpg"}
                     alt={`จังหวัด${temple.province}`}
                     fill
-                    className="object-cover transition duration-700 group-hover:scale-110"
+                    className="object-cover object-top md:object-center transition duration-700 group-hover:scale-110"
                   />
                 </div>
 

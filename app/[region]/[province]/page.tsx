@@ -92,7 +92,6 @@ export default function ProvincePage({
       provinceToSlug(t.province) === params.province
   );
 
-
   const schema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -102,7 +101,6 @@ export default function ProvincePage({
 
   return (
     <main className="bg-white">
-
       {/* HERO */}
       <section className="relative h-[360px]">
         <Image
@@ -114,19 +112,13 @@ export default function ProvincePage({
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute bottom-0 left-0 right-0 max-w-6xl mx-auto px-6 pb-10 text-white">
-          <h1 className="text-4xl font-bold">
-            ไหว้พระ {provinceName}
-          </h1>
-          <p className="opacity-90 mt-2">
-            รวมวัดดังสายมูในจังหวัดนี้
-          </p>
+          <h1 className="text-4xl font-bold">ไหว้พระ {provinceName}</h1>
+          <p className="opacity-90 mt-2">รวมวัดดังสายมูในจังหวัดนี้</p>
         </div>
       </section>
 
       {/* Breadcrumb */}
-      {/* ================= BREADCRUMB ================= */}
       <nav className="max-w-6xl mx-auto px-6 py-6 text-sm flex items-center gap-2">
-
         <Link
           href="/"
           className="text-gray-400 hover:text-burgundy transition"
@@ -145,16 +137,11 @@ export default function ProvincePage({
 
         <span className="text-gray-300">/</span>
 
-        <span className="text-burgundy font-semibold">
-          {provinceName}
-        </span>
-
+        <span className="text-burgundy font-semibold">{provinceName}</span>
       </nav>
-
 
       {/* ================= TEMPLE CARDS ================= */}
       <section className="max-w-6xl mx-auto px-6 pb-16">
-
         <div className="grid md:grid-cols-3 gap-8">
           {provinceTemples.map((temple) => (
             <Link
@@ -163,14 +150,13 @@ export default function ProvincePage({
               className="group"
             >
               <article className="bg-white border border-gray-100 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
-
                 {/* Image */}
-                <div className="relative w-full h-56 overflow-hidden">
+                <div className="relative w-full h-[280px] md:h-56 overflow-hidden">
                   <Image
                     src={temple.coverImage?.src || "/no-image.jpg"}
                     alt={temple.name}
                     fill
-                    className="object-cover transition duration-700 group-hover:scale-110"
+                    className="object-cover object-top md:object-center transition duration-700 group-hover:scale-110"
                   />
                 </div>
 
@@ -184,12 +170,10 @@ export default function ProvincePage({
                     {temple.highlight}
                   </p>
                 </div>
-
               </article>
             </Link>
           ))}
         </div>
-
 
         {/* SEO Content Block */}
         <div className="mt-16 text-center max-w-3xl mx-auto">
@@ -202,7 +186,6 @@ export default function ProvincePage({
             พร้อมเส้นทางเดินทางและวิธีไหว้
           </p>
         </div>
-
       </section>
 
       <Script
