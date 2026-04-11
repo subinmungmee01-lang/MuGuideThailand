@@ -7791,12 +7791,17 @@ export const temples: Temple[] = [
       {
         src: "/imgcentral/pathum-thani/wat-kai-tia/wat-kai-tia-2.jpg",
         alt: "พระพุทธรูปซึ่งเป็นพระประธานเก่าแก่ ในพระอุโบสถ วัดไก่เตี้ย",
-        caption: "พระพุทธรูปซึ่งเป็นพระประธานเก่าแก่ ในพระอุโบสถ วัดไก่เตี้ย"
+        caption: "พระพุทธรูปซึ่งเป็นพระประธานเก่าแก่สมัยอยุธยา ในพระอุโบสถ วัดไก่เตี้ย"
       },
       {
-      src: "/imgcentral/pathum-thani/wat-kai-tia/wat-kai-tia-3.jpg",
+        src: "/imgcentral/pathum-thani/wat-kai-tia/wat-kai-tia-3.jpg",
         alt: "หลวงปู่เดินหน อิเกสาโร วัดไก่เตี้ย",
         caption: "หลวงปู่เดินหน อิเกสาโร วัดไก่เตี้ย ปทุมธานี"
+      },
+      {
+        src: "/imgcentral/pathum-thani/wat-kai-tia/wat-kai-tia-4.jpg",
+        alt: "บรรยากาศริมแม่น้ำเจ้าพระยา วัดไก่เตี้ย",
+        caption: "บรรยากาศริมแม่น้ำเจ้าพระยา วัดไก่เตี้ย ปทุมธานี"
       },
     ],
 
