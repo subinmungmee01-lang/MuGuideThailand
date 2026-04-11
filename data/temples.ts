@@ -7532,29 +7532,29 @@ export const temples: Temple[] = [
     },
 
     coverImage: {
-      src: "/imgcentral/pathum-thani/wat-botwat-bot-1.jpg",
+      src: "/imgcentral/pathum-thani/wat-bot/wat-bot-1.jpg",
       alt: "หลวงพ่อโตขนาดใหญ่ วัดโบสถ์ ปทุมธานี ",
       title: "วัดโบสถ์ ปทุมธานี ไหว้พระหลวงพ่อเหลือ หลวงพ่อโตขนาดใหญ่"
     },
 
     contentImages: [
       {
-        src: "/imgcentral/pathum-thani/wat-botwat-bot-2.jpg",
+        src: "/imgcentral/pathum-thani/wat-bot/wat-bot-2.jpg",
         alt: "หลวงพ่อเหลือ วัดโบสถ์ ปทุมธานี พระพุทธรูปศิลาทราย",
         title: "วัดโบสถ์ ปทุมธานี ไหว้พระหลวงพ่อเหลือ"
       },
       {
-        src: "/imgcentral/pathum-thani/wat-botwat-bot-3.jpg",
+        src: "/imgcentral/pathum-thani/wat-bot/wat-bot-3.jpg",
         alt: "พระอุโบสถ วัดโบสถ์ ปทุมธานี",
         caption: "พระอุโบสถ วัดโบสถ์ ปทุมธานี"
       },
       {
-        src: "/imgcentral/pathum-thani/wat-botwat-bot-4.jpg",
+        src: "/imgcentral/pathum-thani/wat-bot/wat-bot-4.jpg",
         alt: "หลวงพ่อโตองค์ใหญ่ที่สุดในไทย วัดโบสถ์ ปทุมธานี",
         caption: "หลวงพ่อโตองค์ใหญ่ที่สุดในไทย ริมแม่น้ำเจ้าพระยา วัดโบสถ์ ปทุมธานี"
       },
       {
-        src: "/imgcentral/pathum-thani/wat-botwat-bot-5.jpg",
+        src: "/imgcentral/pathum-thani/wat-bot/wat-bot-5.jpg",
         alt: "บรรยากาศริมแม่น้ำเจ้าพระยา วัดโบสถ์ ปทุมธานี",
         caption: "บรรยากาศริมแม่น้ำเจ้าพระยา วัดโบสถ์ ปทุมธานี"
       },
