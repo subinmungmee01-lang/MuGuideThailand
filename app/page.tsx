@@ -13,16 +13,17 @@ import Image from "next/image";
 import { provinceToSlug } from "@/lib/slug";
 import { temples } from "@/data/temples";
 import { regionImages } from "@/data/regionImages";
+import { lotteryHistory } from "@/data/lotteryHistory";
 
 /* =========================
    SEO
 ========================= */
 export async function generateMetadata() {
   const title =
-    "ไหว้พระ ขอพร เสริมดวง ขอพรการเงิน ความรัก โชคลาภ ขอหวย สุขภาพ วัดดัง | MU GUIDE THAILAND";
+    "ไหว้พระ ขอพร เสริมดวง ขอพรการเงิน ความรัก โชคลาภ ขอหวย สุขภาพ วัดดัง สถิติหวย | MU GUIDE THAILAND";
 
   const description =
-    "รวมวัดดังทั่วไทย พร้อมวิธีขอพร เสริมดวงการเงิน ความรัก การงาน และโชคลาภ สุขภาพ ขอหวย แนะนำเส้นทางไหว้พระ ครบทุกภาค อัปเดตล่าสุด";
+    "รวมวัดดังทั่วไทย พร้อมวิธีขอพร เสริมดวงการเงิน ความรัก การงาน และโชคลาภ สุขภาพ ขอหวย สถิติหวย แนะนำเส้นทางไหว้พระ ครบทุกภาค อัปเดตล่าสุด";
 
   const keywords = [
     "ไหว้พระ",
@@ -48,6 +49,7 @@ export async function generateMetadata() {
     "เที่ยววัด",
     "มูเตลู",
     "ขอหวย",
+    "สถิติหวย",
     "MU GUIDE THAILAND",
   ];
 
@@ -91,6 +93,7 @@ export async function generateMetadata() {
 ========================= */
 export default function Home() {
   const regions = Array.from(new Set(temples.map((t) => t.region)));
+  const latestLottery = lotteryHistory.slice(0, 3);
 
   return (
     <main className="bg-white min-h-screen">
@@ -100,6 +103,58 @@ export default function Home() {
       {/* เลขธูปวันนี้ */}
       <section id="today" className="py-8 sm:py-10 md:py-12">
         <TodaySection />
+      </section>
+
+      {/* =========================
+         สถิติหวยย้อนหลัง
+      ========================= */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-10 md:pb-12">
+        <div className="rounded-2xl border border-gray-100 bg-[#fffaf2] p-5 sm:p-6 md:p-8 shadow-sm">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+            <div>
+              <h2 className="text-3xl font-semibold text-burgundy leading-snug">
+                สถิติหวยย้อนหลัง 3 ตัวบน 2 ตัวล่าง
+              </h2>
+              <p className="text-gray-600 mt-2 leading-relaxed">
+                ดูผลหวยย้อนหลังแบบตาราง อ่านง่าย ใช้เช็กข้อมูลย้อนหลังได้ในหน้าเดียว
+              </p>
+            </div>
+
+            <Link
+              href="/lottery-history"
+              className="inline-flex items-center justify-center rounded-xl bg-burgundy px-5 py-3 text-white font-medium hover:opacity-90 transition"
+            >
+              ดูสถิติทั้งหมด
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {latestLottery.map((item, index) => (
+              <div
+                key={`${item.date}-${index}`}
+                className="rounded-2xl bg-white border border-gray-100 p-4 sm:p-5"
+              >
+                <p className="text-sm text-gray-500 mb-3">{item.date}</p>
+
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex-1 rounded-xl bg-[#fff7e8] px-4 py-3 text-center">
+                    <p className="text-xs text-gray-500 mb-1">3 ตัวบน</p>
+                    <p className="text-lg font-semibold text-burgundy tracking-[0.18em]">
+                      {item.threeFront}
+                    </p>
+                  </div>
+
+                  <div className="flex-1 rounded-xl bg-gray-50 px-4 py-3 text-center">
+                    <p className="text-xs text-gray-500 mb-1">2 ตัวล่าง</p>
+                    <p className="text-lg font-semibold text-gray-800 tracking-[0.18em]">
+                      {item.threeBack}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <Divider />
