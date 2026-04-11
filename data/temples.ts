@@ -7541,7 +7541,7 @@ export const temples: Temple[] = [
       {
         src: "/imgcentral/pathum-thani/wat-bot/wat-bot-2.jpg",
         alt: "หลวงพ่อเหลือ วัดโบสถ์ ปทุมธานี พระพุทธรูปศิลาทราย",
-        title: "วัดโบสถ์ ปทุมธานี ไหว้พระหลวงพ่อเหลือ"
+        caption: "หลวงพ่อเหลือ วัดโบสถ์ ปทุมธานี พระพุทธรูปศิลาทราย"
       },
       {
         src: "/imgcentral/pathum-thani/wat-bot/wat-bot-3.jpg",
