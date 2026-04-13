@@ -105,7 +105,6 @@ export default function Home() {
       <section id="today" className="py-8 sm:py-10 md:py-12">
         <TodaySection />
       </section>
-      <ThailandMap />
       {/* =========================
          สถิติหวยย้อนหลัง
       ========================= */}
@@ -171,6 +170,8 @@ export default function Home() {
          เลือกภาค
       ========================= */}
       <SectionTitle title="เลือกภาคเพื่อไหว้พระ" />
+
+      <ThailandMap />
 
       <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-12 md:pb-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
