@@ -14,6 +14,7 @@ import { provinceToSlug } from "@/lib/slug";
 import { temples } from "@/data/temples";
 import { regionImages } from "@/data/regionImages";
 import { lotteryHistory } from "@/data/lotteryHistory";
+import ThailandMap from "@/components/ThailandMap";
 
 /* =========================
    SEO
@@ -104,7 +105,7 @@ export default function Home() {
       <section id="today" className="py-8 sm:py-10 md:py-12">
         <TodaySection />
       </section>
-
+      <ThailandMap />
       {/* =========================
          สถิติหวยย้อนหลัง
       ========================= */}
