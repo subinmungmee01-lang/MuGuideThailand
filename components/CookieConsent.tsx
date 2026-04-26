@@ -7,8 +7,19 @@ export default function CookieConsent() {
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie_consent");
+
     if (!consent) {
       setShow(true);
+    }
+
+    // ✅ 🔥 สำคัญมาก: restore consent ทุกครั้งที่เข้าเว็บ
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("consent", "update", {
+        ad_storage: consent === "accepted" ? "granted" : "denied",
+        analytics_storage: consent === "accepted" ? "granted" : "denied",
+        ad_user_data: consent === "accepted" ? "granted" : "denied",
+        ad_personalization: consent === "accepted" ? "granted" : "denied",
+      });
     }
   }, []);
 
@@ -49,7 +60,6 @@ export default function CookieConsent() {
       <div className="max-w-5xl mx-auto p-4 flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-sm text-gray-700">
           เว็บไซต์นี้ใช้คุกกี้เพื่อพัฒนาประสบการณ์การใช้งาน และแสดงโฆษณาที่เหมาะสม
-          คุณสามารถเลือกยอมรับหรือปฏิเสธได้
         </p>
 
         <div className="flex gap-2">

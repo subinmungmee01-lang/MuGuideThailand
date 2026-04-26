@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     "วัดดังนครปฐม",
     "สายมู",
     "เคล็ดลับสายมู",
-    "วิธีเสริมดวงเห็นผลเร็ว"
+    "วิธีเสริมดวงเห็นผลเร็ว",
   ],
 
   openGraph: {
@@ -88,6 +88,7 @@ export default function RootLayout({
         {/* ✅ Mobile SEO */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+        {/* ✅ Verification */}
         <meta
           name="google-site-verification"
           content="zlAj3pAzTH14IvFGVPKRdgrRIt70Mysuxaj5arg0WzM"
@@ -98,7 +99,7 @@ export default function RootLayout({
         />
         <meta name="agd-partner-manual-verification" />
 
-        {/* ✅ Consent Mode (ต้องมาก่อนสุด) */}
+        {/* ✅ Consent Mode (สำคัญมาก ต้องอยู่บนสุด) */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -109,13 +110,14 @@ export default function RootLayout({
                 ad_storage: 'denied',
                 analytics_storage: 'denied',
                 ad_user_data: 'denied',
-                ad_personalization: 'denied'
+                ad_personalization: 'denied',
+                wait_for_update: 500
               });
             `,
           }}
         />
 
-        {/* ✅ Structured Data (SEO 2026 สำคัญมาก) */}
+        {/* ✅ Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -146,6 +148,7 @@ export default function RootLayout({
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-4024X66DN6"
         ></script>
+
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -164,7 +167,7 @@ export default function RootLayout({
         <Navbar />
         {children}
 
-        {/* ✅ Cookie Banner */}
+        {/* ✅ Cookie Consent (ตัวแก้ GA ไม่เข้า) */}
         <CookieConsent />
       </body>
     </html>
