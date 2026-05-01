@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Prompt } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import CookieConsent from "@/components/CookieConsent";
@@ -97,77 +98,54 @@ export default function RootLayout({
           name="google-adsense-account"
           content="ca-pub-4539487034330957"
         />
-        <meta name="agd-partner-manual-verification" />
-
-        {/* ✅ Consent Mode (สำคัญมาก ต้องอยู่บนสุด) */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-
-              gtag('consent', 'default', {
-                ad_storage: 'denied',
-                analytics_storage: 'denied',
-                ad_user_data: 'denied',
-                ad_personalization: 'denied',
-                wait_for_update: 500
-              });
-            `,
-          }}
-        />
-
-        {/* ✅ Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "MU GUIDE THAILAND",
-              url: "https://www.muguide-thailand.com",
-              potentialAction: {
-                "@type": "SearchAction",
-                target:
-                  "https://www.muguide-thailand.com/search?q={search_term_string}",
-                "query-input": "required name=search_term_string",
-              },
-            }),
-          }}
-        />
-
-        {/* ✅ Google AdSense */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4539487034330957"
-          crossOrigin="anonymous"
-        ></script>
-
-        {/* ✅ Google Analytics (GA4) */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-4024X66DN6"
-        ></script>
-
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              gtag('js', new Date());
-              gtag('config', 'G-4024X66DN6', {
-                anonymize_ip: true
-              });
-            `,
-          }}
-        />
       </head>
 
       <body
         className={`${prompt.className} antialiased bg-[#f6f2ea] text-gray-800 leading-relaxed`}
       >
+        {/* ✅ Consent Mode (ต้องมาก่อนทุก script) */}
+        <Script id="consent" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', {
+              ad_storage: 'denied',
+              analytics_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+              wait_for_update: 500
+            });
+          `}
+        </Script>
+
+        {/* ✅ Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-4024X66DN6"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-4024X66DN6', {
+              anonymize_ip: true
+            });
+          `}
+        </Script>
+
+        {/* ✅ Google AdSense */}
+        <Script
+          async
+          strategy="afterInteractive"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4539487034330957"
+          crossOrigin="anonymous"
+        />
+
         <Navbar />
         {children}
 
-        {/* ✅ Cookie Consent (ตัวแก้ GA ไม่เข้า) */}
+        {/* ✅ Cookie Consent */}
         <CookieConsent />
       </body>
     </html>
