@@ -21,8 +21,8 @@ export function provinceToSlug(name: string) {
     //ภาคกลาง
     .replace("กรุงเทพมหานคร", "bangkok")
     .replace("นนทบุรี", "Nonthaburi")
-    .replace("ปทุมธานี", " pathum-thani")
-
+    .replace("ปทุมธานี", "pathum-thani")
+    .replace("ประจวบคีรีขันธ์", "prachuap-khiri-khan")
    
 
   

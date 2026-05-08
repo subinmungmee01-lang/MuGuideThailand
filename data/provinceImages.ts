@@ -10,6 +10,8 @@ export const provinceImages: Record<string, string> = {
   "นครปฐม": "/imagezone/nakhon-pathom.jpg",
   "นนทบุรี": "/imagezone/non.jpg",
   "ปทุมธานี": "/imagezone/pathum-thani.jpg",
+  "ประจวบคีรีขันธ์": "/imagezone/prachuap-khiri-khan.jpg",
 
-  
+
+
 };
