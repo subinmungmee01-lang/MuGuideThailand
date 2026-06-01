@@ -7,6 +7,7 @@ export interface LotteryDraw {
 }
 
 export const lotteryHistory: LotteryDraw[] = [
+  { date: "1 มิ.ย. 2569", threeFront: "770", threeBack: "95" },
   { date: "16 พ.ค. 2569", threeFront: "387", threeBack: "08" },
   { date: "2 พ.ค. 2569", threeFront: "077", threeBack: "43" },
   { date: "16 เม.ย. 2569", threeFront: "612", threeBack: "77" },
