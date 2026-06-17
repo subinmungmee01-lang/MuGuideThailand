@@ -2,6 +2,27 @@
 
 import { lotteryHistory } from "@/data/lotteryHistory";
 
+function normalizeThreeDigit(value: string | number | undefined | null) {
+  return String(value ?? "")
+    .replace(/\D/g, "")
+    .padStart(3, "0")
+    .slice(-3);
+}
+
+function pickBestDigit(scores: number[]) {
+  let bestDigit = 0;
+  let bestScore = -1;
+
+  scores.forEach((score, digit) => {
+    if (score > bestScore) {
+      bestScore = score;
+      bestDigit = digit;
+    }
+  });
+
+  return bestDigit;
+}
+
 export function generateStatIncense() {
   if (!lotteryHistory || lotteryHistory.length === 0) {
     return {
@@ -10,36 +31,40 @@ export function generateStatIncense() {
     };
   }
 
+  // สำคัญ: ต้องให้ lotteryHistory เรียงจาก "งวดล่าสุด" อยู่บนสุด
   const latestDraws = lotteryHistory.slice(0, 20);
 
-  let weightedSum = 0;
-  let totalWeight = 0;
+  // เก็บคะแนนแยกตามหลัก 3 หลัก
+  // เช่น positionScores[0] = หลักร้อย, [1] = หลักสิบ, [2] = หลักหน่วย
+  const positionScores: number[][] = [
+    Array(10).fill(0),
+    Array(10).fill(0),
+    Array(10).fill(0),
+  ];
 
   latestDraws.forEach((draw, index) => {
-    const weight = 20 - index; // งวดล่าสุดน้ำหนักมากสุด
+    // งวดล่าสุดน้ำหนักมากสุด
+    const weight = latestDraws.length - index;
 
-    const front = draw.threeFront.padStart(3, "0");
-    const back = draw.threeBack.padStart(3, "0");
+    const front = normalizeThreeDigit(draw.threeFront);
+    const back = normalizeThreeDigit(draw.threeBack);
 
-    const digits = (front + back)
-      .split("")
-      .map(Number);
+    const numbers = [front, back];
 
-    const meanOfDraw =
-      digits.reduce((sum, n) => sum + n, 0) / digits.length;
+    numbers.forEach((num) => {
+      num.split("").forEach((digitText, position) => {
+        const digit = Number(digitText);
 
-    weightedSum += meanOfDraw * weight;
-    totalWeight += weight;
+        if (!Number.isNaN(digit)) {
+          positionScores[position][digit] += weight;
+        }
+      });
+    });
   });
 
-  const finalMean = weightedSum / totalWeight;
-
-  // แปลงเป็นเลข 3 ตัวแบบเสถียร
-  const base = Math.floor(finalMean * 100);
-
-  const d1 = base % 10;
-  const d2 = Math.floor(base / 10) % 10;
-  const d3 = Math.floor(base / 100) % 10;
+  const d1 = pickBestDigit(positionScores[0]);
+  const d2 = pickBestDigit(positionScores[1]);
+  const d3 = pickBestDigit(positionScores[2]);
 
   return {
     incense: `${d1} ${d2} ${d3}`,
