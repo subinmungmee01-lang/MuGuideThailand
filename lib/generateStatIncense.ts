@@ -2,25 +2,48 @@
 
 import { lotteryHistory } from "@/data/lotteryHistory";
 
-function normalizeThreeDigit(value: string | number | undefined | null) {
+const DRAW_LIMIT = 20;
+
+// ยิ่งเลขสูง งวดล่าสุดยิ่งมีผลมาก
+// ถ้าอยากให้สถิติเปลี่ยนไวขึ้น เพิ่มเป็น 15 หรือ 20 ได้
+const LATEST_BONUS = 10;
+
+function normalizeDigits(value: string | number | undefined | null, length: number) {
   return String(value ?? "")
     .replace(/\D/g, "")
-    .padStart(3, "0")
-    .slice(-3);
+    .padStart(length, "0")
+    .slice(-length);
 }
 
-function pickBestDigit(scores: number[]) {
-  let bestDigit = 0;
-  let bestScore = -1;
+function addScore(
+  scores: number[][],
+  position: number,
+  digitText: string,
+  weight: number
+) {
+  const digit = Number(digitText);
 
-  scores.forEach((score, digit) => {
-    if (score > bestScore) {
-      bestScore = score;
-      bestDigit = digit;
-    }
-  });
+  if (Number.isInteger(digit) && digit >= 0 && digit <= 9) {
+    scores[position][digit] += weight;
+  }
+}
 
-  return bestDigit;
+function pickBestDigit(scores: number[], avoidZero = false) {
+  const maxScore = Math.max(...scores);
+
+  const candidates = scores
+    .map((score, digit) => ({ score, digit }))
+    .filter((item) => item.score === maxScore)
+    .map((item) => item.digit);
+
+  // หลักแรก ถ้าคะแนนเสมอกัน จะเลี่ยงเลข 0 ก่อน
+  if (avoidZero && candidates.length > 1) {
+    const nonZero = candidates.find((digit) => digit !== 0);
+    if (nonZero !== undefined) return nonZero;
+  }
+
+  // ถ้าคะแนนเสมอกัน เลือกเลขมากกว่า เพื่อให้ผลไม่ล็อกเลขต่ำตลอด
+  return candidates[candidates.length - 1] ?? 0;
 }
 
 export function generateStatIncense() {
@@ -31,11 +54,12 @@ export function generateStatIncense() {
     };
   }
 
-  // สำคัญ: ต้องให้ lotteryHistory เรียงจาก "งวดล่าสุด" อยู่บนสุด
-  const latestDraws = lotteryHistory.slice(0, 20);
+  // ใช้ 20 งวดล่าสุด โดยถือว่างวดล่าสุดอยู่บนสุด
+  const latestDraws = lotteryHistory.slice(0, DRAW_LIMIT);
 
-  // เก็บคะแนนแยกตามหลัก 3 หลัก
-  // เช่น positionScores[0] = หลักร้อย, [1] = หลักสิบ, [2] = หลักหน่วย
+  // scores[0] = หลักร้อย
+  // scores[1] = หลักสิบ
+  // scores[2] = หลักหน่วย
   const positionScores: number[][] = [
     Array(10).fill(0),
     Array(10).fill(0),
@@ -43,26 +67,28 @@ export function generateStatIncense() {
   ];
 
   latestDraws.forEach((draw, index) => {
-    // งวดล่าสุดน้ำหนักมากสุด
-    const weight = latestDraws.length - index;
+    // งวดบนสุดน้ำหนักมากสุด
+    let weight = DRAW_LIMIT - index;
 
-    const front = normalizeThreeDigit(draw.threeFront);
-    const back = normalizeThreeDigit(draw.threeBack);
+    // เพิ่มน้ำหนักพิเศษให้งวดล่าสุด
+    if (index === 0) {
+      weight += LATEST_BONUS;
+    }
 
-    const numbers = [front, back];
+    const front = normalizeDigits(draw.threeFront, 3);
+    const back = normalizeDigits(draw.threeBack, 2);
 
-    numbers.forEach((num) => {
-      num.split("").forEach((digitText, position) => {
-        const digit = Number(digitText);
+    // เลขหน้า 3 ตัว ใช้ครบ 3 หลัก
+    addScore(positionScores, 0, front[0], weight);
+    addScore(positionScores, 1, front[1], weight);
+    addScore(positionScores, 2, front[2], weight);
 
-        if (!Number.isNaN(digit)) {
-          positionScores[position][digit] += weight;
-        }
-      });
-    });
+    // เลขท้าย 2 ตัว เอาไปช่วยคำนวณหลักสิบและหลักหน่วย
+    addScore(positionScores, 1, back[0], weight);
+    addScore(positionScores, 2, back[1], weight);
   });
 
-  const d1 = pickBestDigit(positionScores[0]);
+  const d1 = pickBestDigit(positionScores[0], true);
   const d2 = pickBestDigit(positionScores[1]);
   const d3 = pickBestDigit(positionScores[2]);
 
