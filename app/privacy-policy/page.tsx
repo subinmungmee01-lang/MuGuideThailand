@@ -1,64 +1,80 @@
+export const metadata = {
+  title: "นโยบายความเป็นส่วนตัว | MU GUIDE THAILAND",
+  description:
+    "นโยบายความเป็นส่วนตัว การใช้คุกกี้ Google Analytics และ Google AdSense ของเว็บไซต์ MU GUIDE THAILAND",
+};
+
 export default function PrivacyPolicy() {
   return (
-    <main className="max-w-3xl mx-auto py-16 px-6">
-      <h1 className="text-3xl font-bold mb-6">นโยบายความเป็นส่วนตัว</h1>
+    <main className="bg-white">
+      <section className="max-w-3xl mx-auto py-20 px-6">
+        <p className="text-xs tracking-[0.35em] text-amber-700 mb-4">PRIVACY POLICY</p>
+        <h1 className="text-4xl font-semibold text-burgundy mb-6">นโยบายความเป็นส่วนตัว</h1>
 
-      <p className="mb-4">
-        เว็บไซต์ MU GUIDE THAILAND ให้ความสำคัญกับความเป็นส่วนตัวของผู้ใช้งาน
-        นโยบายนี้อธิบายถึงการเก็บรวบรวม ใช้งาน และปกป้องข้อมูลของคุณ
-      </p>
+        <div className="space-y-6 text-gray-700 leading-relaxed">
+          <p>
+            เว็บไซต์ MU GUIDE THAILAND ให้ความสำคัญกับความเป็นส่วนตัวของผู้ใช้งาน
+            นโยบายนี้อธิบายถึงการเก็บรวบรวม ใช้งาน และปกป้องข้อมูลเมื่อคุณเข้าใช้งานเว็บไซต์ของเรา
+          </p>
 
-      <h2 className="text-xl font-semibold mt-8 mb-2">1. ข้อมูลที่เราเก็บ</h2>
-      <p className="mb-4">
-        เราอาจเก็บข้อมูล เช่น ที่อยู่ IP ประเภทอุปกรณ์ เบราว์เซอร์
-        และพฤติกรรมการใช้งานผ่านเครื่องมือวิเคราะห์ เช่น Google Analytics
-      </p>
+          <section>
+            <h2 className="text-xl font-semibold text-burgundy mb-2">1. ข้อมูลที่เราอาจเก็บรวบรวม</h2>
+            <p>
+              เราอาจเก็บข้อมูลทางเทคนิค เช่น ที่อยู่ IP ประเภทอุปกรณ์ เบราว์เซอร์ หน้าที่เข้าชม
+              และพฤติกรรมการใช้งานโดยรวมผ่านเครื่องมือวิเคราะห์ เพื่อปรับปรุงคุณภาพของเว็บไซต์
+            </p>
+          </section>
 
-      <h2 className="text-xl font-semibold mt-8 mb-2">2. การใช้คุกกี้</h2>
-      <p className="mb-4">
-        เว็บไซต์นี้ใช้คุกกี้เพื่อปรับปรุงประสบการณ์การใช้งาน
-        รวมถึงคุกกี้จากบุคคลที่สาม เช่น Google AdSense เพื่อแสดงโฆษณาที่เหมาะสมกับผู้ใช้งาน
-      </p>
+          <section>
+            <h2 className="text-xl font-semibold text-burgundy mb-2">2. การใช้คุกกี้</h2>
+            <p>
+              เว็บไซต์นี้ใช้คุกกี้เพื่อจดจำการตั้งค่าบางอย่าง วิเคราะห์การใช้งาน และปรับปรุงประสบการณ์ของผู้ใช้งาน
+              ผู้ใช้งานสามารถยอมรับหรือปฏิเสธคุกกี้ได้จากแถบแจ้งเตือนบนเว็บไซต์ หรือปรับการตั้งค่าผ่านเบราว์เซอร์ของตนเอง
+            </p>
+          </section>
 
-      <h2 className="text-xl font-semibold mt-8 mb-2">3. การใช้ Google AdSense</h2>
-      <p className="mb-4">
-        เราใช้ Google AdSense ในการแสดงโฆษณา ซึ่งอาจใช้คุกกี้ DoubleClick
-        เพื่อแสดงโฆษณาตามความสนใจของผู้ใช้
-        คุณสามารถปิดการใช้งานได้ที่
-        <a
-          href="https://adssettings.google.com"
-          target="_blank"
-          className="text-blue-600 underline ml-1"
-        >
-          Ads Settings
-        </a>
-      </p>
+          <section>
+            <h2 className="text-xl font-semibold text-burgundy mb-2">3. Google Analytics</h2>
+            <p>
+              เราใช้ Google Analytics เพื่อวิเคราะห์จำนวนผู้เข้าชมและพฤติกรรมการใช้งานในภาพรวม
+              ข้อมูลที่ได้ช่วยให้เราปรับปรุงเนื้อหาและประสบการณ์การใช้งานให้ดีขึ้น
+            </p>
+          </section>
 
-      <h2 className="text-xl font-semibold mt-8 mb-2">4. การใช้ Google Analytics</h2>
-      <p className="mb-4">
-        เราใช้ Google Analytics เพื่อวิเคราะห์พฤติกรรมผู้ใช้งาน
-        ข้อมูลจะถูกประมวลผลในรูปแบบไม่ระบุตัวตน
-      </p>
+          <section>
+            <h2 className="text-xl font-semibold text-burgundy mb-2">4. Google AdSense และโฆษณา</h2>
+            <p>
+              เว็บไซต์นี้อาจใช้ Google AdSense เพื่อแสดงโฆษณา Google และผู้ให้บริการโฆษณาบุคคลที่สาม
+              อาจใช้คุกกี้เพื่อแสดงโฆษณาที่เกี่ยวข้องกับการเข้าชมเว็บไซต์ของผู้ใช้งาน ผู้ใช้งานสามารถจัดการหรือปิดการปรับโฆษณาตามความสนใจได้ที่
+              <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline mx-1">
+                Google Ads Settings
+              </a>
+            </p>
+          </section>
 
-      <h2 className="text-xl font-semibold mt-8 mb-2">5. ลิงก์ไปยังเว็บไซต์ภายนอก</h2>
-      <p className="mb-4">
-        เว็บไซต์อาจมีลิงก์ไปยังเว็บไซต์ภายนอก เช่น Agoda
-        เราไม่รับผิดชอบนโยบายความเป็นส่วนตัวของเว็บไซต์เหล่านั้น
-      </p>
+          <section>
+            <h2 className="text-xl font-semibold text-burgundy mb-2">5. ลิงก์ไปยังเว็บไซต์ภายนอก</h2>
+            <p>
+              เว็บไซต์อาจมีลิงก์ไปยังเว็บไซต์ภายนอก เช่น Google Maps หรือบริการอื่น ๆ
+              เราไม่สามารถควบคุมเนื้อหาและนโยบายความเป็นส่วนตัวของเว็บไซต์ภายนอกเหล่านั้นได้
+            </p>
+          </section>
 
-      <h2 className="text-xl font-semibold mt-8 mb-2">6. สิทธิของผู้ใช้งาน</h2>
-      <p className="mb-4">
-        คุณมีสิทธิ์ปฏิเสธการใช้คุกกี้ หรือขอลบข้อมูลส่วนบุคคลของคุณได้
-      </p>
+          <section>
+            <h2 className="text-xl font-semibold text-burgundy mb-2">6. การติดต่อเรา</h2>
+            <p>
+              หากมีคำถามเกี่ยวกับนโยบายความเป็นส่วนตัว สามารถติดต่อได้ที่
+              <a href="mailto:contact@muguide-thailand.com" className="text-blue-600 underline mx-1">
+                contact@muguide-thailand.com
+              </a>
+            </p>
+          </section>
+        </div>
 
-      <h2 className="text-xl font-semibold mt-8 mb-2">7. การเปลี่ยนแปลงนโยบาย</h2>
-      <p className="mb-4">
-        เราอาจปรับปรุงนโยบายนี้เป็นครั้งคราว โดยจะแสดงเวอร์ชันล่าสุดบนหน้านี้
-      </p>
-
-      <p className="mt-10 text-sm text-gray-500">
-        อัปเดตล่าสุด: {new Date().toLocaleDateString("th-TH")}
-      </p>
+        <p className="mt-10 text-sm text-gray-500">
+          อัปเดตล่าสุด: {new Date().toLocaleDateString("th-TH")}
+        </p>
+      </section>
     </main>
   );
 }

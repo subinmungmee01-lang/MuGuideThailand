@@ -1,48 +1,19 @@
-// app/api/today/route.ts
-
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
 import { NextResponse } from "next/server";
-import { luckyData } from "@/data/luckyColors";
-import { getThaiDate } from "@/lib/getThaiDate";
-import { generateStatIncense } from "@/lib/generateStatIncense";
-import { getCurrentLotteryRound } from "@/lib/getCurrentLotteryRound";
+
+const dailyTips = [
+  "แต่งกายสุภาพและเตรียมรองเท้าที่ถอดง่ายก่อนเข้าวัด",
+  "ตรวจสอบเวลาเปิดของสถานที่ก่อนออกเดินทางทุกครั้ง",
+  "พกน้ำดื่ม หมวก หรือร่ม หากต้องเดินเที่ยววัดกลางแจ้ง",
+  "ใช้เสียงเบาและปิดเสียงโทรศัพท์เมื่ออยู่ในพื้นที่สักการะ",
+  "อ่านประวัติของวัดก่อนเดินทาง จะช่วยให้เข้าใจคุณค่าของสถานที่มากขึ้น",
+  "หลีกเลี่ยงการใช้แฟลชถ่ายภาพใกล้จิตรกรรมหรือวัตถุโบราณ",
+  "เผื่อเวลาเดินทางและพักระหว่างวัด เพื่อให้ทริปไม่เร่งรีบเกินไป",
+];
 
 export async function GET() {
-  try {
-    const thaiDate = getThaiDate();
-    const day = thaiDate.getDay() as 0 | 1 | 2 | 3 | 4 | 5 | 6;
-
-    const todayData = luckyData[day];
-
-    const round = getCurrentLotteryRound();
-    const { incense, latestDate } = generateStatIncense();
-
-    return NextResponse.json(
-      {
-        success: true,
-        strategy: "Statistical Weighted Model v1 (Per Lottery Round)",
-        lotteryReference: latestDate,
-        round: `${round.roundDay}/${round.month}/${round.year}`,
-        dayNameTH: todayData.dayNameTH,
-        colors: todayData.colors,
-        incenseNumbers: incense,
-        updatedAt: new Date().toISOString(),
-      },
-      {
-        headers: {
-          "Cache-Control": "no-store, no-cache, must-revalidate",
-        },
-      }
-    );
-  } catch {
-    return NextResponse.json(
-      {
-        success: false,
-        message: "เกิดข้อผิดพลาดในการคำนวณเลขธูป",
-      },
-      { status: 500 }
-    );
-  }
+  const day = new Date().getDay();
+  return NextResponse.json({
+    success: true,
+    tip: dailyTips[day] ?? dailyTips[0],
+  });
 }

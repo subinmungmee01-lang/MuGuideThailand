@@ -1,43 +1,42 @@
-// สร้าง slug อังกฤษแบบ SEO friendly จากชื่อไทย
+const provinceSlugMap: Record<string, string> = {
+  กรุงเทพมหานคร: "bangkok",
+  กาญจนบุรี: "kanchanaburi",
+  กำแพงเพชร: "kamphaeng-phet",
+  เชียงใหม่: "chiang-mai",
+  เชียงราย: "chiang-rai",
+  ตาก: "tak",
+  นครสวรรค์: "nakhon-sawan",
+  นนทบุรี: "nonthaburi",
+  น่าน: "nan",
+  ปทุมธานี: "pathum-thani",
+  ประจวบคีรีขันธ์: "prachuap-khiri-khan",
+  พะเยา: "phayao",
+  พิจิตร: "phichit",
+  พิษณุโลก: "phitsanulok",
+  แพร่: "phrae",
+  แม่ฮ่องสอน: "mae-hong-son",
+  ลำปาง: "lampang",
+  ลำพูน: "lamphun",
+  สุโขทัย: "sukhothai",
+};
+
 export function provinceToSlug(name: string) {
-  return name
-    .trim()
-    .toLowerCase()
-    .replace("แม่ฮ่องสอน", "mae-hong-son")
-    .replace("นครสวรรค์", "nakhon-sawan")
-    .replace("เชียงใหม่", "chiang-mai")
-    .replace("เชียงราย", "chiang-rai")
-    .replace("ลำปาง", "lampang")
-    .replace("ลำพูน", "lamphun")
-    .replace("น่าน", "nan")
-    .replace("พะเยา", "phayao")
-    .replace("แพร่", "phrae")
-    .replace("สุโขทัย", "sukhothai")
-    .replace("ตาก", "tak")
-    .replace("พิษณุโลก", "phitsanulok")
-    .replace("พิจิตร", "phichit")
-    .replace("กำแพงเพชร", "kamphaeng-phet")
-    .replace("กาญจนบุรี", "kanchanaburi")
-    //ภาคกลาง
-    .replace("กรุงเทพมหานคร", "bangkok")
-    .replace("นนทบุรี", "Nonthaburi")
-    .replace("ปทุมธานี", "pathum-thani")
-    .replace("ประจวบคีรีขันธ์", "prachuap-khiri-khan")
-   
+  const normalized = name.trim();
 
-  
-
-
-
-    .replace(/\s+/g, "-");
+  return (
+    provinceSlugMap[normalized] ??
+    normalized
+      .toLowerCase()
+      .normalize("NFC")
+      .replace(/\s+/g, "-")
+      .replace(/[()]/g, "")
+  );
 }
 
-// หา "ชื่อจังหวัดไทย" จาก slug
-export function slugToProvince(
-  slug: string,
-  provinces: string[]
-) {
+export function slugToProvince(slug: string, provinces: string[]) {
+  const normalizedSlug = slug.trim().toLowerCase();
+
   return provinces.find(
-    (p) => provinceToSlug(p) === slug
+    (province) => provinceToSlug(province).toLowerCase() === normalizedSlug
   );
 }

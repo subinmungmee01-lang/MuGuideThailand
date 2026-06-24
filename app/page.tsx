@@ -1,11 +1,9 @@
-// page
-
 import Hero from "@/components/Hero";
-import TodaySection from "@/components/TodaySection";
 import TempleSection from "@/components/TempleSection";
 import RandomTempleSection from "@/components/RandomTempleSection";
 import MuCategorySection from "@/components/MuCategorySection";
 import PopularProvince from "@/components/PopularProvince";
+import ThailandMap from "@/components/ThailandMap";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -13,45 +11,27 @@ import Image from "next/image";
 import { provinceToSlug } from "@/lib/slug";
 import { temples } from "@/data/temples";
 import { regionImages } from "@/data/regionImages";
-import { lotteryHistory } from "@/data/lotteryHistory";
-import ThailandMap from "@/components/ThailandMap";
 
-/* =========================
-   SEO
-========================= */
 export async function generateMetadata() {
   const title =
-    "ไหว้พระ ขอพร เสริมดวง ขอพรการเงิน ความรัก โชคลาภ ขอหวย สุขภาพ วัดดัง สถิติหวย | MU GUIDE THAILAND";
+    "คู่มือเที่ยววัด ไหว้พระ ทำบุญ และวัดดังทั่วไทย | MU GUIDE THAILAND";
 
   const description =
-    "รวมวัดดังทั่วไทย พร้อมวิธีขอพร เสริมดวงการเงิน ความรัก การงาน และโชคลาภ สุขภาพ ขอหวย สถิติหวย แนะนำเส้นทางไหว้พระ ครบทุกภาค อัปเดตล่าสุด";
+    "รวมข้อมูลวัดดังทั่วไทย ประวัติ วิธีไหว้ วิธีเดินทาง เวลาเปิด ข้อควรรู้ และเส้นทางเที่ยววัดสำหรับวางแผนไหว้พระทำบุญ";
 
   const keywords = [
     "ไหว้พระ",
-    "ไหว้พระทั่วไทย",
-    "วัดดัง",
-    "วัดดังทั่วไทย",
-    "วัดสายมู",
-    "ขอพร",
-    "เสริมดวง",
-    "เสริมดวงการเงิน",
-    "เสริมดวงความรัก",
-    "ขอพรการงาน",
-    "โชคลาภ",
-    "เลขธูป",
-    "เลขธูปวันนี้",
-    "ไหว้พระ 1 วัน",
-    "เส้นทางไหว้พระ",
-    "วัดขอพร",
-    "วัดขอพรการเงิน",
-    "วัดขอพรความรัก",
-    "วัดขอพรโชคลาภ",
-    "สายมู",
     "เที่ยววัด",
-    "มูเตลู",
-    "ขอหวย",
-    "สถิติหวย",
-    "MU GUIDE THAILAND",
+    "วัดดังทั่วไทย",
+    "ทำบุญ",
+    "เส้นทางไหว้พระ",
+    "วัดกรุงเทพ",
+    "วัดกาญจนบุรี",
+    "วัดแม่ฮ่องสอน",
+    "วัดนครสวรรค์",
+    "มารยาทเข้าวัด",
+    "คู่มือเที่ยววัด",
+    "วัฒนธรรมไทย",
   ];
 
   return {
@@ -89,87 +69,22 @@ export async function generateMetadata() {
   };
 }
 
-/* =========================
-   Page
-========================= */
 export default function Home() {
   const regions = Array.from(new Set(temples.map((t) => t.region)));
-  const latestLottery = lotteryHistory.slice(0, 3);
 
   return (
     <main className="bg-white min-h-screen">
-      {/* HERO */}
       <Hero />
 
-      {/* เลขธูปวันนี้ */}
-      <section id="today" className="py-8 sm:py-10 md:py-12">
-        <TodaySection />
-      </section>
-      {/* =========================
-         สถิติหวยย้อนหลัง
-      ========================= */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-10 md:pb-12">
-        <div className="rounded-2xl border border-gray-100 bg-[#fffaf2] p-5 sm:p-6 md:p-8 shadow-sm">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
-            <div>
-              <h2 className="text-3xl font-semibold text-burgundy leading-snug">
-                สถิติหวยย้อนหลัง 3 ตัวบน 2 ตัวล่าง
-              </h2>
-              <p className="text-gray-600 mt-2 leading-relaxed">
-                ดูผลหวยย้อนหลังแบบตาราง อ่านง่าย ใช้เช็กข้อมูลย้อนหลังได้ในหน้าเดียว
-              </p>
-            </div>
-
-            <Link
-              href="/lottery-history"
-              className="inline-flex items-center justify-center rounded-xl bg-burgundy px-5 py-3 text-white font-medium hover:opacity-90 transition"
-            >
-              ดูสถิติทั้งหมด
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {latestLottery.map((item, index) => (
-              <div
-                key={`${item.date}-${index}`}
-                className="rounded-2xl bg-white border border-gray-100 p-4 sm:p-5"
-              >
-                <p className="text-sm text-gray-500 mb-3">{item.date}</p>
-
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex-1 rounded-xl bg-[#fff7e8] px-4 py-3 text-center">
-                    <p className="text-xs text-gray-500 mb-1">3 ตัวบน</p>
-                    <p className="text-lg font-semibold text-burgundy tracking-[0.18em]">
-                      {item.threeFront}
-                    </p>
-                  </div>
-
-                  <div className="flex-1 rounded-xl bg-gray-50 px-4 py-3 text-center">
-                    <p className="text-xs text-gray-500 mb-1">2 ตัวล่าง</p>
-                    <p className="text-lg font-semibold text-gray-800 tracking-[0.18em]">
-                      {item.threeBack}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <IntroTrustSection />
 
       <Divider />
 
-      {/* =========================
-         วัดสายมู
-      ========================= */}
       <MuCategorySection />
 
       <Divider />
 
-      {/* =========================
-         เลือกภาค
-      ========================= */}
-      <SectionTitle title="เลือกภาคเพื่อไหว้พระ" />
+      <SectionTitle title="เลือกภาคเพื่อวางแผนเที่ยววัด" />
 
       <ThailandMap />
 
@@ -178,25 +93,23 @@ export default function Home() {
           {regions.map((region) => (
             <Link key={region} href={`/${region}`} className="group">
               <article className="bg-white border border-gray-100 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 h-full">
-                {/* Image */}
                 <div className="relative w-full aspect-[4/3] overflow-hidden rounded-t-2xl">
                   <Image
                     src={regionImages[region] || "/no-image.jpg"}
-                    alt={`ไหว้พระภาค${convertRegionToThai(region)}`}
+                    alt={`เที่ยววัดภาค${convertRegionToThai(region)}`}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                     className="object-cover object-center transition duration-700 group-hover:scale-110"
                   />
                 </div>
 
-                {/* Content */}
                 <div className="p-4 sm:p-5 md:p-6">
                   <h2 className="text-lg font-semibold text-burgundy group-hover:text-gold transition leading-snug">
                     ภาค{convertRegionToThai(region)}
                   </h2>
 
                   <p className="text-gray-500 text-sm mt-2 leading-relaxed">
-                    ดูวัดทั้งหมดในภาคนี้
+                    ดูจังหวัดและวัดทั้งหมดในภาคนี้
                   </p>
                 </div>
               </article>
@@ -207,120 +120,91 @@ export default function Home() {
 
       <Divider />
 
-      {/* =========================
-         วัดยอดนิยมทั่วไทย
-      ========================= */}
       <RandomTempleSection />
 
       <Divider />
 
-      {/* =========================
-         เส้นทางยอดนิยม
-      ========================= */}
       <SectionTitle title="เส้นทางไหว้พระยอดนิยม" />
 
       <CardGrid>
-        <Card
-          title="ไหว้พระ 1 วัน อยุธยา"
-          href={`/central/${provinceToSlug("อยุธยา")}`}
-        />
-
-        <Card
-          title="9 วัดดัง นครปฐม"
-          href={`/central/${provinceToSlug("นครปฐม")}`}
-        />
-
-        <Card
-          title="ไหว้พระ แม่ฮ่องสอน"
-          href={`/north/${provinceToSlug("แม่ฮ่องสอน")}`}
-        />
+        <Card title="ไหว้พระกรุงเทพ 1 วัน" href={`/central/${provinceToSlug("กรุงเทพมหานคร")}`} />
+        <Card title="เที่ยววัดกาญจนบุรี" href={`/west/${provinceToSlug("กาญจนบุรี")}`} />
+        <Card title="ไหว้พระแม่ฮ่องสอน" href={`/north/${provinceToSlug("แม่ฮ่องสอน")}`} />
       </CardGrid>
 
       <Divider />
 
-      {/* =========================
-         วัดดังแนะนำ
-      ========================= */}
       <section className="pb-12 md:pb-16">
         <TempleSection />
       </section>
 
       <Divider />
 
-      {/* =========================
-         จังหวัดยอดนิยม
-      ========================= */}
       <PopularProvince />
 
       <Divider />
 
-      {/* =========================
-         SEO CONTENT
-      ========================= */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-16 md:pb-20 text-left">
-        <h1 className="text-3xl font-semibold text-burgundy mb-5 md:mb-6 leading-snug">
-          ไหว้พระทั่วไทย ขอพร เสริมดวงการเงิน ความรัก การงาน และโชคลาภ
-        </h1>
-
-        <p className="text-gray-700 leading-relaxed mb-5 md:mb-6">
-          หากคุณกำลังมองหาวัดดังทั่วไทยสำหรับไหว้พระ ขอพร และเสริมดวง
-          หน้านี้ได้รวบรวมสถานที่ยอดนิยมสำหรับสายมูไว้ครบ
-          ทั้งวัดขอพรเรื่องการเงิน ความรัก การงาน สุขภาพ และโชคลาภ
-          พร้อมแนะนำเส้นทางไหว้พระในแต่ละภาคของประเทศไทย
-          เพื่อช่วยให้คุณเลือกวัดที่เหมาะกับความตั้งใจได้ง่ายขึ้น
-        </p>
-
-        <h2 className="text-xl font-semibold mt-8 mb-3">
-          ขอพรเรื่องการเงิน
-        </h2>
-        <p className="text-gray-700 leading-relaxed">
-          สำหรับผู้ที่ต้องการเสริมดวงการเงิน ค้าขาย และโชคลาภ
-          ควรเลือกวัดที่มีชื่อเสียงด้านความมั่งคั่งและความสำเร็จ
-          หลายวัดในไทยเป็นที่นิยมสำหรับการขอพรเรื่องเงินทอง ธุรกิจ
-          และโอกาสใหม่ ๆ ในชีวิต
-        </p>
-
-        <h2 className="text-xl font-semibold mt-8 mb-3">
-          ขอพรเรื่องความรัก
-        </h2>
-        <p className="text-gray-700 leading-relaxed">
-          วัดที่เด่นด้านความรักมักเหมาะสำหรับทั้งคนโสด
-          คนที่ต้องการพบคู่ที่ดี
-          และผู้ที่อยากให้ความสัมพันธ์มั่นคงมากขึ้น
-          การเลือกวัดตามความเชื่อและตำนานของแต่ละแห่ง
-          ช่วยให้การขอพรตรงกับสิ่งที่ตั้งใจมากขึ้น
-        </p>
-
-        <h2 className="text-xl font-semibold mt-8 mb-3">
-          ไหว้พระ 1 วัน ไปไหนดี
-        </h2>
-        <p className="text-gray-700 leading-relaxed">
-          หากมีเวลาจำกัด สามารถเลือกเส้นทางไหว้พระ 1 วัน เช่น
-          <Link href="/central/ayutthaya" className="text-gold underline ml-1">
-            ไหว้พระอยุธยา 1 วัน
-          </Link>
-          ที่รวมวัดดังหลายแห่งไว้ในทริปเดียว
-          เหมาะสำหรับทั้งการท่องเที่ยวและการขอพรเสริมดวง
-        </p>
-
-        <h2 className="text-xl font-semibold mt-8 mb-3">
-          รวมวัดดังแยกตามภาค
-        </h2>
-        <p className="text-gray-700 leading-relaxed">
-          เว็บไซต์นี้ช่วยให้ค้นหาวัดดังได้ง่ายขึ้น
-          โดยแยกข้อมูลตามภาคและจังหวัดอย่างชัดเจน
-          ไม่ว่าจะเป็นภาคเหนือ ภาคกลาง ภาคอีสาน ภาคใต้
-          ภาคตะวันออก หรือภาคตะวันตก
-          ทำให้วางแผนเดินทางไหว้พระและขอพรได้สะดวกมากขึ้น
-        </p>
-      </section>
+      <SeoContentSection />
     </main>
   );
 }
 
-/* =========================
-   UI Components
-========================= */
+function IntroTrustSection() {
+  return (
+    <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+      <div className="rounded-3xl border border-amber-100 bg-[#fffaf2] p-6 md:p-10 shadow-sm">
+        <p className="text-xs tracking-[0.35em] text-amber-700 mb-4">TRAVEL GUIDE</p>
+        <h2 className="text-2xl md:text-3xl font-semibold text-burgundy leading-snug">
+          ข้อมูลเที่ยววัดที่อ่านง่าย เหมาะสำหรับวางแผนก่อนเดินทาง
+        </h2>
+        <p className="text-gray-600 mt-4 leading-relaxed max-w-4xl">
+          เว็บไซต์นี้รวบรวมข้อมูลวัดและสถานที่ศรัทธาทั่วไทย โดยเน้นประวัติ จุดเด่น
+          วิธีเดินทาง เวลาเปิด ข้อควรรู้ และมารยาทในการเข้าวัด เพื่อให้ผู้อ่านใช้เป็นคู่มือ
+          วางแผนทริปไหว้พระ ทำบุญ และท่องเที่ยวเชิงวัฒนธรรมได้อย่างมั่นใจ
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function SeoContentSection() {
+  return (
+    <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-16 md:pb-20 text-left">
+      <h1 className="text-3xl font-semibold text-burgundy mb-5 md:mb-6 leading-snug">
+        ไหว้พระทั่วไทย เที่ยววัด ทำบุญ และเรียนรู้วัฒนธรรมไทย
+      </h1>
+
+      <p className="text-gray-700 leading-relaxed mb-5 md:mb-6">
+        หากคุณกำลังมองหาสถานที่ไหว้พระหรือวางแผนเดินทางเที่ยววัดในประเทศไทย
+        MU GUIDE THAILAND รวบรวมข้อมูลวัดดังและสถานที่ศรัทธาไว้ตามภาค จังหวัด
+        และหมวดความตั้งใจ เพื่อช่วยให้เลือกจุดหมายที่เหมาะกับเวลาและรูปแบบการเดินทางของคุณ
+      </p>
+
+      <h2 className="text-xl font-semibold mt-8 mb-3">วางแผนไหว้พระ 1 วัน</h2>
+      <p className="text-gray-700 leading-relaxed">
+        สำหรับผู้ที่มีเวลาจำกัด สามารถเลือกเส้นทางใกล้กรุงเทพ เช่น
+        <Link href="/central/bangkok" className="text-gold underline mx-1">
+          ไหว้พระกรุงเทพ 1 วัน
+        </Link>
+        หรือเลือกจังหวัดที่เดินทางสะดวก พร้อมอ่านข้อมูลเวลาเปิดและจุดเด่นของแต่ละวัดก่อนออกเดินทาง
+      </p>
+
+      <h2 className="text-xl font-semibold mt-8 mb-3">อ่านข้อมูลก่อนเข้าวัด</h2>
+      <p className="text-gray-700 leading-relaxed">
+        แต่ละหน้าวัดมีข้อมูลประวัติ ความสำคัญ บรรยากาศ จุดสักการะ ข้อควรรู้
+        และคำแนะนำการแต่งกาย เพื่อให้การเดินทางเป็นไปอย่างสุภาพ เคารพสถานที่
+        และได้ประสบการณ์ที่ดีทั้งด้านการท่องเที่ยวและจิตใจ
+      </p>
+
+      <h2 className="text-xl font-semibold mt-8 mb-3">รวมวัดดังแยกตามภาค</h2>
+      <p className="text-gray-700 leading-relaxed">
+        เว็บไซต์นี้จัดหมวดวัดตามภาคและจังหวัด เช่น ภาคเหนือ ภาคกลาง ภาคตะวันตก
+        และจังหวัดยอดนิยม เพื่อให้ค้นหาข้อมูลได้ง่ายขึ้น เหมาะสำหรับผู้ที่ต้องการจัดทริปเอง
+        หรือหาไอเดียเดินทางในวันหยุด
+      </p>
+    </section>
+  );
+}
 
 function Divider() {
   return (
@@ -359,7 +243,7 @@ function Card({ title, href }: { title: string; href: string }) {
         </h3>
 
         <p className="text-sm text-gray-500 mt-2 leading-relaxed">
-          อ่านรายละเอียด วิธีไหว้ และเคล็ดลับเสริมดวง
+          อ่านรายละเอียด ประวัติ วิธีเดินทาง และข้อควรรู้ก่อนเดินทาง
         </p>
       </div>
     </Link>

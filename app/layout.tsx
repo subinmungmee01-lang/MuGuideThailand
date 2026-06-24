@@ -1,64 +1,41 @@
 import type { Metadata } from "next";
-import { Prompt } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import CookieConsent from "@/components/CookieConsent";
-
-const prompt = Prompt({
-  subsets: ["thai", "latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
-
-const currentDate = new Date().toLocaleDateString("th-TH", {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-});
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.muguide-thailand.com"),
 
   title: {
     default:
-      "เลขธูปวันนี้ (อัปเดตล่าสุด) ไหว้พระ เสริมดวง ขอหวย เลขธูป รวมวัดดัง ขอพรการเงิน ความรัก โชคลาภ | MU GUIDE THAILAND",
+      "คู่มือเที่ยววัด ไหว้พระ ทำบุญ และวัดดังทั่วไทย | MU GUIDE THAILAND",
     template: "%s | MU GUIDE THAILAND",
   },
 
-  description: `รวมเลขธูปวันนี้ อัปเดตล่าสุด ${currentDate} พร้อมวิธีเสริมดวง การเงิน ความรัก สีมงคล และวัดดังทั่วไทย ครบจบในที่เดียว`,
+  description:
+    "MU GUIDE THAILAND คู่มือเที่ยววัด ไหว้พระ ทำบุญ และเรียนรู้วัฒนธรรมไทย รวมข้อมูลวัดดังทั่วประเทศ วิธีเดินทาง เวลาเปิด และข้อควรรู้ก่อนเดินทาง",
 
   keywords: [
-    "เลขธูปวันนี้",
-    "เลขธูปวันนี้ ล่าสุด",
-    "เลขธูปวันนี้ 2569",
-    "เสริมดวง",
-    "วิธีเสริมดวง",
-    "เสริมดวงการเงิน",
-    "เสริมดวงความรัก",
-    "เสริมดวงโชคลาภ",
-    "สีมงคลวันนี้",
-    "สีมงคลประจำวัน",
-    "วัดขอพร",
-    "วัดศักดิ์สิทธิ์",
-    "วัดขอหวย",
-    "วัดดังทั่วไทย",
     "ไหว้พระ",
-    "ขอพรที่ไหนดี",
-    "ที่ไหว้พระใกล้ฉัน",
-    "วัดดังอยุธยา",
-    "วัดดังกรุงเทพ",
-    "วัดดังนครปฐม",
-    "สายมู",
-    "เคล็ดลับสายมู",
-    "วิธีเสริมดวงเห็นผลเร็ว",
+    "เที่ยววัด",
+    "วัดดังทั่วไทย",
+    "ทำบุญ",
+    "วัฒนธรรมไทย",
+    "เส้นทางไหว้พระ",
+    "วัดกรุงเทพ",
+    "วัดกาญจนบุรี",
+    "วัดแม่ฮ่องสอน",
+    "วัดนครสวรรค์",
+    "คู่มือเที่ยววัด",
+    "มารยาทเข้าวัด",
   ],
 
   openGraph: {
-    title:
-      "ไหว้พระ เสริมดวง ขอหวย | เลขธูป รวมวัดดัง ขอพรการเงิน ความรัก โชคลาภ",
+    title: "คู่มือเที่ยววัด ไหว้พระ ทำบุญ และวัดดังทั่วไทย",
     description:
-      "อัปเดตเลขธูปวันนี้ พร้อมสีมงคล วิธีเสริมดวง และวัดดังทั่วไทย ครบจบในเว็บเดียว",
+      "รวมข้อมูลวัดดังทั่วไทย ประวัติ วิธีเดินทาง เวลาเปิด และข้อควรรู้ก่อนเดินทาง",
     url: "https://www.muguide-thailand.com",
     siteName: "MU GUIDE THAILAND",
     locale: "th_TH",
@@ -67,9 +44,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "เลขธูปวันนี้ อัปเดตล่าสุด | MU GUIDE THAILAND",
+    title: "คู่มือเที่ยววัดทั่วไทย | MU GUIDE THAILAND",
     description:
-      "ดูเลขธูปวันนี้ เสริมดวง สีมงคล และวัดดังทั่วไทย อัปเดตทุกวัน",
+      "ข้อมูลเที่ยววัด ไหว้พระ ทำบุญ และวัฒนธรรมไทยสำหรับวางแผนเดินทาง",
   },
 
   robots: {
@@ -101,7 +78,7 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`${prompt.className} antialiased bg-[#f6f2ea] text-gray-800 leading-relaxed`}
+        className="antialiased bg-[#f6f2ea] text-gray-800 leading-relaxed"
       >
         {/* ✅ Consent Mode (ต้องมาก่อนทุก script) */}
         <Script id="consent" strategy="beforeInteractive">
@@ -144,6 +121,7 @@ export default function RootLayout({
 
         <Navbar />
         {children}
+        <Footer />
 
         {/* ✅ Cookie Consent */}
         <CookieConsent />

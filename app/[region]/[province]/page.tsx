@@ -5,7 +5,10 @@ import Image from "next/image";
 import Script from "next/script";
 import { temples } from "@/data/temples";
 import { provinceToSlug, slugToProvince } from "@/lib/slug";
+import { notFound } from "next/navigation";
 import { provinceImages } from "@/data/provinceImages";
+
+export const dynamicParams = false;
 
 /* =========================
    Static Params
@@ -51,7 +54,7 @@ export async function generateMetadata({
   const title = `ไหว้พระ ${provinceName} | วัดดัง ${provinceName} ขอพรเรื่องอะไร`;
   const description =
     `รวมวัดดังในจังหวัด${provinceName} สายมูต้องไป ` +
-    `แนะนำวิธีขอพร การเงิน ความรัก โชคลาภ พร้อมแผนที่`;
+    `แนะนำประวัติ วิธีเดินทาง เวลาเปิด และข้อควรรู้ก่อนเดินทาง พร้อมแผนที่`;
 
   const url = `https://www.muguide-thailand.com/${params.region}/${params.province}`;
 
@@ -83,7 +86,7 @@ export default function ProvincePage({
   );
 
   if (!provinceName) {
-    return <div className="p-20 text-center">ไม่พบจังหวัดนี้</div>;
+    notFound();
   }
 
   const provinceTemples = temples.filter(
@@ -113,7 +116,7 @@ export default function ProvincePage({
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute bottom-0 left-0 right-0 max-w-6xl mx-auto px-6 pb-10 text-white">
           <h1 className="text-4xl font-bold">ไหว้พระ {provinceName}</h1>
-          <p className="opacity-90 mt-2">รวมวัดดังสายมูในจังหวัดนี้</p>
+          <p className="opacity-90 mt-2">รวมวัดและสถานที่น่าเที่ยวในจังหวัดนี้</p>
         </div>
       </section>
 
@@ -182,8 +185,8 @@ export default function ProvincePage({
           </h2>
           <p className="text-gray-600">
             รวมวัดดังในจังหวัด{provinceName}
-            แนะนำขอพรเรื่องการเงิน ความรัก และโชคลาภ
-            พร้อมเส้นทางเดินทางและวิธีไหว้
+            แนะนำประวัติ จุดเด่น วิธีเดินทาง และข้อควรรู้
+            พร้อมข้อมูลสำหรับวางแผนเที่ยววัด
           </p>
         </div>
       </section>

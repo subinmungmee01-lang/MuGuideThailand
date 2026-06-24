@@ -37,3 +37,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 "# MuGuideThailand" 
 "# MuGuideThailand" 
 "# MuGuideThailand" 
+
+
+## Font restore
+- คืนฟอนต์หน้าเว็บเป็น Google Font: Prompt ผ่าน `<link>` ใน `app/layout.tsx` และ `font-family` ใน `app/globals.css` เพื่อให้หน้าตาเว็บกลับมาเหมือนเดิม โดยไม่กระทบการแก้ AdSense

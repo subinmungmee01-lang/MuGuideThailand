@@ -8,6 +8,8 @@ import { provinceToSlug } from "@/lib/slug";
 import { regionImages } from "@/data/regionImages";
 import { provinceImages } from "@/data/provinceImages";
 
+export const dynamicParams = false;
+
 /* =========================
    Static Params
 ========================= */
@@ -28,8 +30,8 @@ export async function generateMetadata({
 
   const title = `ไหว้พระภาค${regionThai} | รวมวัดดังสายมู`;
   const description =
-    `รวมวัดดังภาค${regionThai} ขอพรการเงิน ความรัก โชคลาภ ` +
-    `แนะนำเส้นทางไหว้พระ และจังหวัดยอดนิยม`;
+    `รวมวัดดังภาค${regionThai} แนะนำประวัติ วิธีเดินทาง ` +
+    `เส้นทางไหว้พระ และจังหวัดยอดนิยม`;
 
   const url = `https://www.muguide-thailand.com/${params.region}`;
 
@@ -97,7 +99,7 @@ export default function RegionPage({
           </h1>
 
           <p className="opacity-90 mt-2">
-            รวมจังหวัดและวัดดังสายมูในภาคนี้
+            รวมจังหวัดและวัดน่าเที่ยวในภาคนี้
           </p>
         </div>
       </section>
@@ -169,8 +171,8 @@ export default function RegionPage({
           </h2>
 
           <p className="text-gray-600">
-            รวมวัดดังสายมูในภาค{convertRegionToThai(params.region)}
-            แนะนำจังหวัดยอดนิยม วิธีขอพร และเส้นทางไหว้พระ
+            รวมวัดดังและสถานที่ศรัทธาในภาค{convertRegionToThai(params.region)}
+            แนะนำจังหวัดยอดนิยม ประวัติสถานที่ และเส้นทางไหว้พระ
           </p>
         </div>
 

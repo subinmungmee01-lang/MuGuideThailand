@@ -19,6 +19,8 @@ const regionNameMap: Record<string, string> = {
   south: "ภาคใต้",
 };
 
+export const dynamicParams = false;
+
 /* =========================
    STATIC PARAMS
 ========================= */
@@ -95,7 +97,7 @@ export default function TemplePage({
   if (!temple) {
     return (
       <div className="p-20 text-center font-bold text-burgundy">
-        ไม่พบข้อมูลวัดนี้
+        ไม่พบข้อมูลสถานที่นี้
       </div>
     );
   }
@@ -198,7 +200,7 @@ export default function TemplePage({
           {temple.meritHighlight && (
             <section className="prose prose-lg max-w-none">
               <h2 className="text-3xl font-bold text-burgundy flex items-center gap-3 mb-6">
-                <span className="text-2xl">🙏</span> เด่นขอพรเรื่องอะไร?
+                <span className="text-2xl">🙏</span> จุดเด่นและความสำคัญ
               </h2>
               <div className="bg-white p-8 rounded-2xl border-l-8 border-gold shadow-md">
                 <p className="text-2xl font-bold text-gold mb-3">{temple.meritHighlight.main}</p>
@@ -256,7 +258,7 @@ export default function TemplePage({
               <div className="grid md:grid-cols-2 gap-12 mb-10">
                 <div className="space-y-6">
                   <h3 className="text-xl font-bold text-gold flex items-center gap-2 border-b border-gold/20 pb-2 uppercase">
-                    ขั้นตอนการขอพร
+                    แนวทางการสักการะ
                   </h3>
                   <ol className="space-y-4">
                     {temple.blessingTechnique.steps.map((step, i) => (
@@ -395,7 +397,7 @@ export default function TemplePage({
             <section className="pt-16 border-t border-gray-100">
               <h2 className="text-2xl font-semibold text-burgundy mb-8 flex items-center gap-3">
                 <span className="w-8 h-[1px] bg-gold/50"></span>
-                สายมูต้องไปต่อ ในจังหวัด{temple.province}
+                สถานที่แนะนำเพิ่มเติมในจังหวัด{temple.province}
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -453,9 +455,9 @@ export default function TemplePage({
       <footer className="bg-gray-50 mt-20 py-20 text-center">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="text-2xl font-bold text-burgundy mb-4 uppercase tracking-wider">Muguide Thailand</h2>
-          <p className="text-gray-500 font-light mb-8 italic"> &quot;เพราะความศรัทธา คือจุดเริ่มต้นของความสำเร็จ&quot;</p>
+          <p className="text-gray-500 font-light mb-8 italic"> &quot;คู่มือเที่ยววัดและวัฒนธรรมไทยสำหรับทุกคน&quot;</p>
           <div className="h-1 w-20 bg-gold mx-auto mb-8"></div>
-          <p className="text-sm text-gray-400">แบ่งปันบุญและความรู้ให้เพื่อนของคุณ</p>
+          <p className="text-sm text-gray-400">แบ่งปันข้อมูลวัดและวัฒนธรรมไทยให้เพื่อนของคุณ</p>
         </div>
       </footer>
     </main>

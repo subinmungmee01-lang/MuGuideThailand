@@ -9,6 +9,8 @@ import { provinceToSlug } from "@/lib/slug";
 /* ===============================
    MU CATEGORY TYPE
 ================================ */
+export const dynamicParams = false;
+
 type MuCategory =
   | "wealth"
   | "work"
@@ -25,7 +27,7 @@ const categoryTitle: Record<MuCategory, string> = {
   work: "วัดขอพรการงาน",
   love: "วัดขอพรความรัก",
   success: "วัดขอพรความสำเร็จ",
-  luck: "วัดขอโชคลาภ",
+  luck: "วัดเสริมสิริมงคล",
   health: "วัดขอพรสุขภาพ",
 };
 
@@ -37,12 +39,24 @@ export function generateMetadata({
 }: {
   params: { category: MuCategory };
 }): Metadata {
-  const title = categoryTitle[params.category] ?? "วัดสายมู";
+  const title = categoryTitle[params.category] ?? "วัดตามหมวดขอพร";
 
   return {
     title: `${title} ทั่วไทย | MuGuideThailand`,
-    description: `รวม${title}ทั่วประเทศไทย แนะนำวัดสายมูยอดนิยม พร้อมวิธีไหว้ จุดเด่น และข้อมูลการเดินทาง`,
+    description: `รวม${title}ทั่วประเทศไทย แนะนำวัดตามหมวดขอพรยอดนิยม พร้อมวิธีไหว้ จุดเด่น และข้อมูลการเดินทาง`,
   };
+}
+
+
+export function generateStaticParams() {
+  return [
+    { category: "wealth" },
+    { category: "work" },
+    { category: "love" },
+    { category: "success" },
+    { category: "luck" },
+    { category: "health" },
+  ];
 }
 
 /* ===============================
@@ -57,7 +71,7 @@ export default function MuCategoryPage({
     t.muTags?.includes(params.category)
   );
 
-  const title = categoryTitle[params.category] ?? "วัดสายมู";
+  const title = categoryTitle[params.category] ?? "วัดตามหมวดขอพร";
 
   return (
     <>
@@ -85,7 +99,7 @@ export default function MuCategoryPage({
           </h1>
 
           <p className="text-gray-500">
-            รวมวัดสายมูทั่วประเทศไทย
+            รวมวัดและสถานที่ศรัทธาทั่วประเทศไทย
           </p>
 
           <p className="text-sm text-gray-400 mt-2">
