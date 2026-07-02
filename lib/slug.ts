@@ -18,6 +18,7 @@ const provinceSlugMap: Record<string, string> = {
   ลำปาง: "lampang",
   ลำพูน: "lamphun",
   สุโขทัย: "sukhothai",
+  ร้อยเอ็ด:"roi-et",
 };
 
 export function provinceToSlug(name: string) {

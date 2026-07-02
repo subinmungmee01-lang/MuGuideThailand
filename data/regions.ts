@@ -27,6 +27,6 @@ export const regions = {
   northeast: {
     slug: "northeast",
     name: "ภาคอีสาน",
-    provinces: ["บุรีรัมย์"]
+    provinces: ["บุรีรัมย์","ร้อยเอ็ด"]
   },
 };
